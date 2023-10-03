@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
+import { ToastrModule } from 'ngx-toastr';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ToastService } from './services/toast.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +17,12 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    ToastService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

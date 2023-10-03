@@ -71,7 +71,8 @@
       <div class="sm:col-span-2">
         <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Nombre completo</label>
         <div class="mt-2.5">
-          <input type="text" name="first-name" formControlName="name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <input type="text" formControlName="name" placeholder="Nombre completo" [ngClass]="{'ring-red-500 shake-anim': errorName }" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <span *ngIf="errorName" class="text-red-500 text-sm ml-1"> Nombre requerido </span>
         </div>
       </div>
 
@@ -79,16 +80,18 @@
       <div class="sm:col-span-2">
         <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Correo</label>
         <div class="mt-2.5">
-          <input type="email" name="email" id="email" formControlName="email" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <input type="email" name="email" id="email" formControlName="email" placeholder="Correo" [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <span *ngIf="errorEmail" class="text-red-500 text-sm ml-1"> Correo requerido </span>
+          <span *ngIf="errorEmailPattern" class="text-red-500 text-sm ml-1"> Correo no valido </span>
         </div>
       </div>
 
       <!-- Pais residencia -->
       <div class="sm:col-span-2">
-        <label for="country" class="block text-sm font-medium leading-6 text-gray-900">País de residencia</label>
+        <label class="block text-sm font-medium leading-6 text-gray-900">País de residencia</label>
         <div class="mt-2">
-          <select id="country" (change)="onSelectResident()" formControlName="resident" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600">
-            <option>United States</option>
+          <select (change)="onSelectResident()" formControlName="resident" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600">
+            <option>United kingdom</option>
             <option>Canada</option>
             <option>México</option>
             <option>Brasil</option>
@@ -106,10 +109,10 @@
       </div>
       
       <div class="sm:col-span-2">
-        <label for="phone-number" class="block text-sm font-semibold leading-6 text-gray-900">Celular</label>
+        <label class="block text-sm font-semibold leading-6 text-gray-900">Celular</label>
         <div class="relative mt-2.5 flex gap-x-4">
           <div class="absolute inset-y-0 left-0 flex items-center">
-            <select id="country" name="country" (change)="onSelectResident()" formControlName="lada" class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-2 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+            <select (change)="onSelectResident()" formControlName="lada"  class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-2 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
               <option> Mexico (+52) </option>
               <option> Brasil (+55) </option>
               <option> Australia (+61) </option>
@@ -121,15 +124,17 @@
             </svg>
           </div>
           <!-- Celular -->
-          <input *ngIf="lada == 'Otro'" type="number" name="phone-number" formControlName="phone" id="phone-number" placeholder="Otra lada" class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          <input type="number" name="phone-number" formControlName="phone" id="phone-number" placeholder="Celular" [ngClass]="{'pl-2' : lada == 'Otro'}" class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <input *ngIf="lada == 'Otro'" type="text" [maxlength]="5" formControlName="otherLada" placeholder="Otra lada" class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <input type="text" maxlength="15" formControlName="phone" placeholder="Celular" [ngClass]="{'pl-2' : lada == 'Otro'}" class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <!-- 'ring-red-500 shake-anim': errorEmail -->
         </div>
+        <span *ngIf="errorPhone" class="text-red-500 text-sm ml-1"> Celular requerido </span>
       </div>
 
     <!-- Boton de registro -->
     </div>
     <div class="mt-10">
-      <button type="submit" class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+      <button type="submit" [ngClass]="{'button-primary-disabled' : !form.valid, 'button-primary' : form.valid }" [disabled]="!form.valid">
         Registro
       </button>
     </div>

@@ -7,11 +7,11 @@ export class RegisterForm {
         return formBuild.group({
             name            : [ '', [Validators.required ] ],
             email           : [ '', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
-            resident        : [ 'United States', [Validators.required ] ],
-            otherResident   : [ '', [Validators.required ] ],
-            phone           : [ '', [Validators.required, Validators.maxLength(15)] ],
-            lada            : [ 'Mexico (+52)', [Validators.required, Validators.maxLength(5)] ],
-            otherLada       : [ '', [Validators.required, Validators.maxLength(5)] ],
+            resident        : [ 'United kingdom', [Validators.required ] ],
+            otherResident   : [ '', [] ],
+            phone           : [ '', [Validators.required, Validators.minLength(10),Validators.maxLength(15), ] ],
+            lada            : [ 'Mexico (+52)', [Validators.required] ],
+            otherLada       : [ '', [ Validators.maxLength(5)] ],
         });
 
     }
