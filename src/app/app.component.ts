@@ -1,9 +1,14 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { RegisterForm } from './forms/register-form';
+
+import { TranslateService } from '@ngx-translate/core';
+
+import { MenuItem } from 'primeng/api';
+
 import { UserRegister } from './interfaces/user-register';
-import { RegisterUserService } from './services/register-user.service';
+import { RegisterForm } from './forms/register-form';
 import { ToastService } from './services/toast.service';
+import { RegisterUserService } from './services/register-user.service';
 
 @Component({
   selector    : 'app-root',
@@ -14,16 +19,54 @@ export class AppComponent implements OnInit {
 
   title = 'Landing Page';
   form  : FormGroup = new RegisterForm().buildForm(this.formBuilder);
+  selectedLanguage = 'es';
+  items: MenuItem[] | undefined;
   
   constructor(
     private readonly formBuilder  : FormBuilder,
     private readonly userServices : RegisterUserService,
     private readonly toastServices: ToastService,
-  ) { }
+    private readonly translateService: TranslateService,
+  ) {
+    this.translateService.setDefaultLang(this.selectedLanguage);
+    this.translateService.use(this.selectedLanguage);
+  }
 
+  selectLanguage(lang: string) {
+    this.translateService.use(lang);
+  }
 
   ngOnInit(): void {
-
+    this.items = [
+      {
+          items: [
+              {
+                  label: 'RECOMENDACIONES',
+                  command: () => {
+                    this.scrollToSection('#informacion');
+                  }
+              },
+              {
+                  label: 'AGENDA',
+                  command: () => {
+                    this.scrollToSection('#agenda');
+                  }
+              },
+              {
+                  label: 'SEDE',
+                  command: () => {
+                    this.scrollToSection('#sede');
+                  }
+              },
+              {
+                  label: 'REGISTRARME',
+                  command: () => {
+                    this.scrollToSection('#registro');
+                  }
+              },
+          ]
+      }
+    ];
   }
 
   scrollToSection(sectionId: string) {
