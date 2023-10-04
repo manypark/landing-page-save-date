@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { RegisterForm } from './forms/register-form';
 import { UserRegister } from './interfaces/user-register';
@@ -23,11 +23,14 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+
   }
 
-  onSelectResident() {
-
+  scrollToSection(sectionId: string) {
+    const section = document.querySelector(sectionId) as HTMLElement;
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   submit(ve:any) {
@@ -48,6 +51,7 @@ export class AppComponent implements OnInit {
 
       if( res.status == 'ok' ) {
         this.toastServices.openSuccessSnakcBar('Se ha enviado el correo de invitacion', 'Registro exitoso');
+        this.form.reset();
       }
 
     });

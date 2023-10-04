@@ -1,10 +1,8 @@
 <!-- Nav bar -->
-
-<header class="bg-white">
+<div class="bg-white z-20 sticky top-0">
   <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
-      <a href="#" class="-m-1.5 p-1.5">
-        <span class="sr-only">Your Company</span>
+      <a href="#informacion" class="-m-1.5 p-1.5">
         <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
       </a>
     </div>
@@ -17,20 +15,20 @@
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Información</a>
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Registro</a>
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Recomendaciones</a>
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Agenda</a>
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Sede</a>
+      <a (click)="scrollToSection('#informacion')" data-scroll-to="#informacion" class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">Información</a>
+      <a (click)="scrollToSection('#registro')" data-scroll-to="#registro" class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">Registro</a>
+      <a (click)="scrollToSection('#recomendaciones')" data-scroll-to="#recomendaciones" class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">Recomendaciones</a>
+      <a (click)="scrollToSection('#agenda')" data-scroll-to="#agenda" class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">Agenda</a>
+      <a (click)="scrollToSection('#sede')" data-scroll-to="#sede" class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">Sede</a>
     </div>
   </nav>
+
+  <!--  menu mobile  -->
   <div class="lg:hidden" role="dialog" aria-modal="true">
     <div class="fixed inset-0 z-10"></div>
     <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
       <div class="flex items-center justify-between">
         <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
           <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
         </a>
         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
@@ -43,102 +41,236 @@
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Información</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Registro</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Recomendaciones</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Agenda</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sede</a>
+            <a  (click)="scrollToSection('#informacion')" data-scroll-to="#informacion" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Información</a>
+            <a  href="#registro" data-scroll="registro" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Registro</a>
+            <a  href="#recomendaciones" data-scroll="recomendaciones" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Recomendaciones</a>
+            <a  href="#agenda" data-scroll="agenda" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Agenda</a>
+            <a  href="#sede" data-scroll="sede" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sede</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-</header>
-<!-- Nav bar end -->
-<!-- Registro -->
-<div class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
-  <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
-    <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="mx-auto max-w-2xl text-center">
-    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"> Registro del evento </h2>
-    <p class="mt-2 text-lg leading-8 text-gray-600"> Hola, te invitamos el evento Benefit.</p>
-  </div>
-  <form (ngSubmit)="submit($event)" [formGroup]="form" class="mx-auto mt-16 max-w-xl sm:mt-20">
-    <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-
-      <!-- Nombre completo -->
-      <div class="sm:col-span-2">
-        <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Nombre completo</label>
-        <div class="mt-2.5">
-          <input type="text" formControlName="name" placeholder="Nombre completo" [ngClass]="{'ring-red-500 shake-anim': errorName }" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          <span *ngIf="errorName" class="text-red-500 text-sm ml-1"> Nombre requerido </span>
-        </div>
-      </div>
-
-      <!-- Correo electronico -->
-      <div class="sm:col-span-2">
-        <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Correo</label>
-        <div class="mt-2.5">
-          <input type="email" name="email" id="email" formControlName="email" placeholder="Correo" [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          <span *ngIf="errorEmail" class="text-red-500 text-sm ml-1"> Correo requerido </span>
-          <span *ngIf="errorEmailPattern" class="text-red-500 text-sm ml-1"> Correo no valido </span>
-        </div>
-      </div>
-
-      <!-- Pais residencia -->
-      <div class="sm:col-span-2">
-        <label class="block text-sm font-medium leading-6 text-gray-900">País de residencia</label>
-        <div class="mt-2">
-          <select (change)="onSelectResident()" formControlName="resident" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600">
-            <option>United kingdom</option>
-            <option>Canada</option>
-            <option>México</option>
-            <option>Brasil</option>
-            <option>Otro</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Otra residencia -->
-      <div class="sm:col-span-2" *ngIf="resident == 'Otro'">
-        <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Otra residencia</label>
-        <div class="mt-2.5">
-          <input type="text" name="first-name" formControlName="otherResident" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-        </div>
-      </div>
-      
-      <div class="sm:col-span-2">
-        <label class="block text-sm font-semibold leading-6 text-gray-900">Celular</label>
-        <div class="relative mt-2.5 flex gap-x-4">
-          <div class="absolute inset-y-0 left-0 flex items-center">
-            <select (change)="onSelectResident()" formControlName="lada"  class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-2 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
-              <option> Mexico (+52) </option>
-              <option> Brasil (+55) </option>
-              <option> Australia (+61) </option>
-              <option> United kingdom (+44) </option>
-              <option> Otro </option>
-            </select>
-            <svg class="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-            </svg>
-          </div>
-          <!-- Celular -->
-          <input *ngIf="lada == 'Otro'" type="text" [maxlength]="5" formControlName="otherLada" placeholder="Otra lada" class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          <input type="text" maxlength="15" formControlName="phone" placeholder="Celular" [ngClass]="{'pl-2' : lada == 'Otro'}" class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          <!-- 'ring-red-500 shake-anim': errorEmail -->
-        </div>
-        <span *ngIf="errorPhone" class="text-red-500 text-sm ml-1"> Celular requerido </span>
-      </div>
-
-    <!-- Boton de registro -->
-    </div>
-    <div class="mt-10">
-      <button type="submit" [ngClass]="{'button-primary-disabled' : !form.valid, 'button-primary' : form.valid }" [disabled]="!form.valid">
-        Registro
-      </button>
-    </div>
-  </form>
+  <!--  menu mobile end -->
 </div>
+<!-- Nav bar end -->
 
+<!-- section 0 -->
+<section id="informacion">
+  <div class="bg-gray-100 py-24 sm:py-32">
+    <h1 class="text-5xl flex justify-center mb-32"> Informacion </h1>
+    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
+      </div>
+      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+        <li>
+          <div class="flex items-center gap-x-6">
+            <img class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <div>
+              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
+              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- section 0 end -->
+
+<!-- Registro -->
+<section id="registro">
+  <div class="bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"> Registro del evento </h2>
+      <p class="mt-2 text-lg leading-8 text-gray-600"> Hola, te invitamos el evento Benefit.</p>
+    </div>
+    <form (ngSubmit)="submit($event)" [formGroup]="form" class="mx-auto mt-16 max-w-xl sm:mt-20">
+      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+  
+        <!-- Nombre completo -->
+        <div class="sm:col-span-2">
+          <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Nombre completo</label>
+          <div class="mt-2.5">
+            <input type="text" formControlName="name" placeholder="Nombre completo" [ngClass]="{'ring-red-500 shake-anim': errorName }" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <span *ngIf="errorName" class="text-red-500 text-sm ml-1"> Nombre requerido </span>
+          </div>
+        </div>
+  
+        <!-- Correo electronico -->
+        <div class="sm:col-span-2">
+          <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Correo</label>
+          <div class="mt-2.5">
+            <input type="email" name="email" id="email" formControlName="email" placeholder="Correo" [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <span *ngIf="errorEmail" class="text-red-500 text-sm ml-1"> Correo requerido </span>
+            <span *ngIf="errorEmailPattern" class="text-red-500 text-sm ml-1"> Correo no valido </span>
+          </div>
+        </div>
+  
+        <!-- Pais residencia -->
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium leading-6 text-gray-900">País de residencia</label>
+          <div class="mt-2">
+            <select formControlName="resident" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600">
+              <option>United kingdom</option>
+              <option>Canada</option>
+              <option>México</option>
+              <option>Brasil</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+  
+        <!-- Otra residencia -->
+        <div class="sm:col-span-2" *ngIf="resident == 'Otro'">
+          <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Otra residencia</label>
+          <div class="mt-2.5">
+            <input type="text" name="first-name" formControlName="otherResident" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-semibold leading-6 text-gray-900">Celular</label>
+          <div class="relative mt-2.5 flex gap-x-4">
+            <div class="absolute inset-y-0 left-0 flex items-center">
+              <select formControlName="lada"  class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-2 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+                <option> Mexico (+52) </option>
+                <option> Brasil (+55) </option>
+                <option> Australia (+61) </option>
+                <option> United kingdom (+44) </option>
+                <option> Otro </option>
+              </select>
+              <svg class="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <!-- Celular -->
+            <input *ngIf="lada == 'Otro'" type="text" [maxlength]="5" formControlName="otherLada" placeholder="Otra lada" class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" maxlength="15" formControlName="phone" placeholder="Celular" [ngClass]="{'pl-2' : lada == 'Otro'}" class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <!-- 'ring-red-500 shake-anim': errorEmail -->
+          </div>
+          <span *ngIf="errorPhone" class="text-red-500 text-sm ml-1"> Celular requerido </span>
+        </div>
+  
+      <!-- Boton de registro -->
+      </div>
+      <div class="mt-10">
+        <button type="submit" [ngClass]="{'button-primary-disabled' : !form.valid, 'button-primary' : form.valid }" [disabled]="!form.valid">
+          Registro
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
 <!-- Registro end -->
+
+<!-- section 1 -->
+<section id="recomendaciones">
+  <div class="bg-gray-100 py-24 sm:py-32">
+    <h1 class="text-5xl flex justify-center mb-32"> Recomendaciones </h1>
+    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
+      </div>
+      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+        <li>
+          <div class="flex items-center gap-x-6">
+            <img class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <div>
+              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
+              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- section 1 end -->
+
+<!-- section 2 -->
+<section id="agenda">
+  <div class="bg-gray-300 py-24 sm:py-32">
+    <h1 class="text-5xl flex justify-center mb-32"> Agenda </h1>
+    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
+      </div>
+      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+        <li>
+          <div class="flex items-center gap-x-6">
+            <img class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <div>
+              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
+              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
+      </div>
+      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+        <li>
+          <div class="flex items-center gap-x-6">
+            <img class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <div>
+              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
+              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- section 2 end -->
+
+<!-- section 3 -->
+<section id="sede">
+  <div class="bg-gray-100 py-24 sm:py-32">
+    <h1 class="text-5xl flex justify-center mb-32"> Sede </h1>
+    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
+      </div>
+      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+        <li>
+          <div class="flex items-center gap-x-6">
+            <img class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <div>
+              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
+              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
+      </div>
+      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+        <li>
+          <div class="flex items-center gap-x-6">
+            <img class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <div>
+              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
+              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- section 3 end -->
