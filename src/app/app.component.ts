@@ -94,7 +94,10 @@ export class AppComponent implements OnInit {
 
       if( res.status == 'ok' ) {
         this.toastServices.openSuccessSnakcBar('Se ha enviado el correo de invitacion', 'Registro exitoso');
-        this.form.reset();
+        this.form.reset({
+          resident: 'United kingdom',
+          lada: '(+52)'
+        });
       }
 
     });

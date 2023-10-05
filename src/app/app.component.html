@@ -1,9 +1,10 @@
 <!-- Nav bar -->
-<div class="bg-white lg:sticky lg:top-0">
-  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+<div class="navbar-background w-full lg:sticky lg:top-0">
+  <nav class="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
-      <a href="#informacion" class="-m-1.5 p-1.5">
-        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+      <a href="">
+        <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt=""> -->
+        <img class="h-32 w-full" [src]="'assets/images/LogoBenefit.png'" alt="">
       </a>
     </div>
 
@@ -13,36 +14,35 @@
       <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-bars"></button>
     </div>
 
-    <div class="hidden lg:flex lg:gap-x-12">
-
+    <div class="hidden lg:flex lg:place-items-center lg:gap-x-12">
       <a 
         (click)="scrollToSection('#informacion')" 
         data-scroll-to="#informacion" 
-        class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">
+        class="text-sm cursor-pointer font-semibold leading-6 text-white">
         BENNEVERSE 2023
       </a>
       <a 
         (click)="scrollToSection('#recomendaciones')" 
         data-scroll-to="#recomendaciones" 
-        class="text-sm cursor-pointer font-semibold leading-6 text-gray-900"> 
+        class="text-sm cursor-pointer font-semibold leading-6 text-white"> 
         {{ 'recomendations' | translate }}
       </a>
       <a 
         (click)="scrollToSection('#agenda')" 
         data-scroll-to="#agenda" 
-        class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">
+        class="text-sm cursor-pointer font-semibold leading-6 text-white">
         {{ 'agend' | translate }}
       </a>
       <a 
         (click)="scrollToSection('#sede')" 
         data-scroll-to="#sede" 
-        class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">
+        class="text-sm cursor-pointer font-semibold leading-6 text-white">
         {{ 'sede' | translate }}
       </a>
       <a 
         (click)="scrollToSection('#registro')" 
         data-scroll-to="#registro" 
-        class="text-sm cursor-pointer font-semibold leading-6 text-gray-900">
+        class="text-sm button-register px-12 py-2 rounded-lg cursor-pointer font-semibold leading-6 text-white">
         {{ 'registration' | translate }}
       </a>
     </div>
@@ -51,7 +51,7 @@
 <!-- Nav bar end -->
 
 <!-- section 0 -->
-<section id="informacion">
+<!-- <section id="informacion">
   <div class="bg-gray-100 py-24 sm:py-32">
     <h1 class="text-5xl flex justify-center mb-32"> Informacion </h1>
     <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
@@ -72,97 +72,159 @@
       </ul>
     </div>
   </div>
-</section>
+</section> -->
 <!-- section 0 end -->
 
 <!-- Registro -->
-<section id="registro">
-  <div class="bg-white px-6 py-24 sm:py-32 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"> Registro del evento </h2>
-      <p class="mt-2 text-lg leading-8 text-gray-600"> Hola, te invitamos el evento Benefit.</p>
-    </div>
-    <form (ngSubmit)="submit($event)" [formGroup]="form" class="mx-auto mt-16 max-w-xl sm:mt-20">
-      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-  
-        <!-- Nombre completo -->
-        <div class="sm:col-span-2">
-          <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Nombre completo</label>
-          <div class="mt-2.5">
-            <input type="text" formControlName="name" placeholder="Nombre completo" [ngClass]="{'ring-red-500 shake-anim': errorName }" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            <span *ngIf="errorName" class="text-red-500 text-sm ml-1"> Nombre requerido </span>
-          </div>
-        </div>
-  
-        <!-- Correo electronico -->
-        <div class="sm:col-span-2">
-          <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Correo</label>
-          <div class="mt-2.5">
-            <input type="email" name="email" id="email" formControlName="email" placeholder="Correo" [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            <span *ngIf="errorEmail" class="text-red-500 text-sm ml-1"> Correo requerido </span>
-            <span *ngIf="errorEmailPattern" class="text-red-500 text-sm ml-1"> Correo no valido </span>
-          </div>
-        </div>
-  
-        <!-- Pais residencia -->
-        <div class="sm:col-span-2">
-          <label class="block text-sm font-medium leading-6 text-gray-900">País de residencia</label>
-          <div class="mt-2">
-            <select formControlName="resident" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600">
-              <option>United kingdom</option>
-              <option>Canada</option>
-              <option>México</option>
-              <option>Brasil</option>
-              <option>Otro</option>
-            </select>
-          </div>
-        </div>
-  
-        <!-- Otra residencia -->
-        <div class="sm:col-span-2" *ngIf="resident == 'Otro'">
-          <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Otra residencia</label>
-          <div class="mt-2.5">
-            <input type="text" name="first-name" formControlName="otherResident" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          </div>
-        </div>
-        
-        <div class="sm:col-span-2">
-          <label class="block text-sm font-semibold leading-6 text-gray-900">Celular</label>
-          <div class="relative mt-2.5 flex gap-x-4">
-            <div class="absolute inset-y-0 left-0 flex items-center">
-              <select formControlName="lada"  class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-2 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
-                <option> Mexico (+52) </option>
-                <option> Brasil (+55) </option>
-                <option> Australia (+61) </option>
-                <option> United kingdom (+44) </option>
-                <option> Otro </option>
-              </select>
-              <svg class="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-              </svg>
+<section id="registro" class="w-full grid place-items-center">
+
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 py-20 px-4 lg:px-14">
+
+    <!-- formulario  -->
+    <div class="grid w-full col-span-1 h-96 mb-10 justify-start">
+
+      <div class="text-start mb-4">
+        <h2 class="text-4xl ml-9"> Registrate para acudir al evento </h2>
+      </div>
+
+      <form (ngSubmit)="submit($event)" [formGroup]="form" class="w-full">
+        <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+    
+          <!-- Nombre completo -->
+          <div class="sm:col-span-2">
+            <div class="flex place-items-center gap-x-2 mt-2.5">
+
+              <div class="w-8 h-8 flex place-content-center">
+                <img [src]="'assets/images/Recurso-1.png'" alt="">
+              </div>
+
+              <div class="w-full grid">
+                <input
+                  type="text" 
+                  formControlName="name" 
+                  placeholder="Nombre" 
+                  [ngClass]="{'ring-red-500 shake-anim': errorName }" 
+                  class="custom-input w-3/4 lg:w-full">
+                <span *ngIf="errorName" class="text-red-500 text-sm ml-1"> Nombre requerido </span>
+              </div>
             </div>
-            <!-- Celular -->
-            <input *ngIf="lada == 'Otro'" type="text" [maxlength]="5" formControlName="otherLada" placeholder="Otra lada" class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            <input type="text" maxlength="15" formControlName="phone" placeholder="Celular" [ngClass]="{'pl-2' : lada == 'Otro'}" class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            <!-- 'ring-red-500 shake-anim': errorEmail -->
           </div>
-          <span *ngIf="errorPhone" class="text-red-500 text-sm ml-1"> Celular requerido </span>
-        </div>
+    
+          <!-- Correo electronico -->
+          <div class="sm:col-span-2">
+            <div class="flex place-items-center gap-x-2 mt-2.5">
+
+              <div class="w-8 h-8 flex place-content-center">
+                <img [src]="'assets/images/Recurso-2.png'" alt="">
+              </div>
+
+              <div class="w-full grid">
+                <input 
+                  type="email"
+                  formControlName="email" 
+                  placeholder="Correo electrónico" 
+                  [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" 
+                  class="custom-input w-3/4 lg:w-full">
+                <span *ngIf="errorEmail" class="text-red-500 text-sm ml-1"> Correo requerido </span>
+                <span *ngIf="errorEmailPattern" class="text-red-500 text-sm ml-1"> Correo no valido </span>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Pais residencia -->
+          <div class="sm:col-span-2">
+            <div class="flex place-items-center gap-x-2 mt-2.5">
+
+              <div class="w-8 h-8 flex place-content-center">
+                <img [src]="'assets/images/Recurso-3.png'" alt="">
+              </div>
+
+              <select formControlName="resident" class="custom-input w-3/4 lg:w-full">
+                <option>United kingdom</option>
+                <option>Canada</option>
+                <option>México</option>
+                <option>Brasil</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+    
+          <!-- Otra residencia -->
+          <div class="sm:col-span-2" *ngIf="resident == 'Otro'">
+            <div class="flex place-items-center gap-x-2 mt-2.5">
+
+              <div class="w-8 h-8 flex place-content-center">
+                <img [src]="'assets/images/Recurso-3.png'" alt="">
+              </div>
+
+              <input type="text" name="first-name" formControlName="otherResident" placeholder="Otro" class="custom-input w-3/4 lg:w-full">
+            </div>
+          </div>
+          
+          <div class="sm:col-span-2">
+            <div class="flex place-items-center gap-x-2 mt-2.5">
+
+              <div class="w-8 h-8 flex place-content-center">
+                <img [src]="'assets/images/Recurso-4.png'" alt="">
+              </div>
+
+              <div class="flex w-3/4 lg:w-full flex-row">
   
-      <!-- Boton de registro -->
+                <div class="left-0 flex items-center basis-1/2">
+                  <select formControlName="lada"  class="custom-input w-full">
+                    <option> (+52) </option>
+                    <option> (+55) </option>
+                    <option> (+61) </option>
+                    <option> (+44) </option>
+                    <option> Otro </option>
+                  </select>
+                </div>
+  
+                <!-- Celular -->
+                <input 
+                  *ngIf="lada == 'Otro'" 
+                  type="text" 
+                  [maxlength]="5" 
+                  formControlName="otherLada" 
+                  placeholder="Otra lada" 
+                  class="custom-input basis-1/2">
+                <input 
+                  type="text" 
+                  maxlength="15" 
+                  formControlName="phone" 
+                  placeholder="Número teléfonico" 
+                  class="custom-input w-3/4 lg:w-full">
+              </div>
+            </div>
+            <span *ngIf="errorPhone" class="text-red-500 text-sm ml-10"> Número teléfonico requerido </span>
+              
+          </div>
+    
+        <!-- Boton de registro -->
+        </div>
+        <div class="mt-10 flex justify-center">
+          <button type="submit" [ngClass]="{'button-primary-disabled' : !form.valid, 'button-primary' : form.valid }" [disabled]="!form.valid">
+            Registrar
+          </button>
+        </div>
+      </form>
+
+    </div>
+
+    <!-- imagen -->
+    <div class="col-span-1 max-w-4xl mt-20 lg:mt-8">
+      <div class="w-full h-full">
+        <img class="w-full h-full object-fill" [src]="'assets/images/Beneverse-03.png'" alt="imagen de beneverse">
       </div>
-      <div class="mt-10">
-        <button type="submit" [ngClass]="{'button-primary-disabled' : !form.valid, 'button-primary' : form.valid }" [disabled]="!form.valid">
-          Registro
-        </button>
-      </div>
-    </form>
+    </div>
+
   </div>
+
 </section>
 <!-- Registro end -->
 
 <!-- section 1 -->
-<section id="recomendaciones">
+<!-- <section id="recomendaciones">
   <div class="bg-gray-100 py-24 sm:py-32">
     <h1 class="text-5xl flex justify-center mb-32"> Recomendaciones </h1>
     <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
@@ -183,11 +245,11 @@
       </ul>
     </div>
   </div>
-</section>
+</section> -->
 <!-- section 1 end -->
 
 <!-- section 2 -->
-<section id="agenda">
+<!-- <section id="agenda">
   <div class="bg-gray-300 py-24 sm:py-32">
     <h1 class="text-5xl flex justify-center mb-32"> Agenda </h1>
     <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
@@ -225,11 +287,11 @@
       </ul>
     </div>
   </div>
-</section>
+</section> -->
 <!-- section 2 end -->
 
 <!-- section 3 -->
-<section id="sede">
+<!-- <section id="sede">
   <div class="bg-gray-100 py-24 sm:py-32">
     <h1 class="text-5xl flex justify-center mb-32"> Sede </h1>
     <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
@@ -267,5 +329,5 @@
       </ul>
     </div>
   </div>
-</section>
+</section> -->
 <!-- section 3 end -->

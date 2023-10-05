@@ -10,7 +10,7 @@ export class RegisterForm {
             resident        : [ 'United kingdom', [Validators.required ] ],
             otherResident   : [ '', [] ],
             phone           : [ '', [Validators.required, Validators.minLength(10),Validators.maxLength(15), ] ],
-            lada            : [ 'Mexico (+52)', [Validators.required] ],
+            lada            : [ '(+52)', [Validators.required] ],
             otherLada       : [ '', [ Validators.maxLength(5)] ],
         });
 
