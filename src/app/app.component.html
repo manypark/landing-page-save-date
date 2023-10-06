@@ -84,7 +84,7 @@
     <div class="grid w-full col-span-1 h-96 mb-10 justify-start">
 
       <div class="text-start mb-4">
-        <h2 class="text-4xl ml-9"> Registrate para acudir al evento </h2>
+        <h2 class="text-4xl ml-9"> Regístrate para acudir al evento </h2>
       </div>
 
       <form (ngSubmit)="submit($event)" [formGroup]="form" class="w-full">
@@ -203,7 +203,11 @@
         <!-- Boton de registro -->
         </div>
         <div class="mt-10 flex justify-center">
-          <button type="submit" [ngClass]="{'button-primary-disabled' : !form.valid, 'button-primary' : form.valid }" [disabled]="!form.valid">
+          <button 
+            type="submit" 
+            [ngClass]="{'button-primary-disabled' : !form.valid || isLoading, 'button-primary' : form.valid }" 
+            [disabled]="!form.valid || isLoading">
+            <i class="pi pi-spin pi-spinner" *ngIf="isLoading" style="font-size: 1rem"></i>
             Registrar
           </button>
         </div>
@@ -213,9 +217,21 @@
 
     <!-- imagen -->
     <div class="col-span-1 max-w-4xl mt-20 lg:mt-8">
+
       <div class="w-full h-full">
-        <img class="w-full h-full object-fill" [src]="'assets/images/Beneverse-03.png'" alt="imagen de beneverse">
+        <video id="video" autoplay muted loop playsInline width="700" height="1000">
+          <source src="https://firebasestorage.googleapis.com/v0/b/hellomx-f7302.appspot.com/o/Master_Beneverse.mp4?alt=media" type="video/mp4">
+          Su navegador no soporta vídeos HTML5.
+        </video>
       </div>
+
+      <!-- <div class="w-full h-full">
+        <img 
+          class="w-full h-full object-fill" 
+          src="https://firebasestorage.googleapis.com/v0/b/hellomx-f7302.appspot.com/o/STD.jpg?alt=media" 
+          alt="imagen de beneverse">
+      </div> -->
+
     </div>
 
   </div>

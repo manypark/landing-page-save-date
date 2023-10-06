@@ -9,6 +9,7 @@ import { UserRegister } from './interfaces/user-register';
 import { RegisterForm } from './forms/register-form';
 import { ToastService } from './services/toast.service';
 import { RegisterUserService } from './services/register-user.service';
+import { delay } from 'rxjs';
 
 @Component({
   selector    : 'app-root',
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
   form  : FormGroup = new RegisterForm().buildForm(this.formBuilder);
   selectedLanguage = 'es';
   items: MenuItem[] | undefined;
+  isLoading:boolean = false;
   
   constructor(
     private readonly formBuilder  : FormBuilder,
@@ -37,6 +39,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.items = [
       {
           items: [
@@ -90,16 +93,30 @@ export class AppComponent implements OnInit {
       lada: lada == 'Otro' ? otherLada : lada
     };
 
+    this.isLoading = true;
+
     this.userServices.saveUser(user).subscribe( (res:any) => {
 
+      this.isLoading = false;
+
       if( res.status == 'ok' ) {
-        this.toastServices.openSuccessSnakcBar('Se ha enviado el correo de invitacion', 'Registro exitoso');
+        this.toastServices.openSuccessSnakcBar('hemos enviado un correo de confirmación, revisa tu e-mail', 'Registro exitoso');
         this.form.reset({
           resident: 'United kingdom',
           lada: '(+52)'
         });
       }
 
+      if( res.status == 'false' ) {
+        this.toastServices.openSuccessSnakcBar('Hemos enviado un correo de confirmación, revisa tu e-mail', 'Registro exitoso');
+        this.form.reset({
+          resident: 'United kingdom',
+          lada: '(+52)'
+        });
+      }
+
+    }, err => {
+      this.isLoading = false;
     });
     
   }
