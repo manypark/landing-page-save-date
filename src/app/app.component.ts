@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -16,13 +16,15 @@ import { delay } from 'rxjs';
   templateUrl : './app.component.html',
   styleUrls   : ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('videoPlayer') videoPlayer?: ElementRef;
   title = 'Landing Page';
   form  : FormGroup = new RegisterForm().buildForm(this.formBuilder);
   selectedLanguage = 'es';
   items: MenuItem[] | undefined;
   isLoading:boolean = false;
+  numeroAleatorio:number = 0;
   
   constructor(
     private readonly formBuilder  : FormBuilder,
@@ -34,12 +36,19 @@ export class AppComponent implements OnInit {
     this.translateService.use(this.selectedLanguage);
   }
 
+  ngAfterViewInit(): void {
+   this.playVideo();
+  }
+
+  playVideo() {
+    this.videoPlayer?.nativeElement.play();
+  }
+
   selectLanguage(lang: string) {
     this.translateService.use(lang);
   }
 
   ngOnInit(): void {
-
     this.items = [
       {
           items: [
