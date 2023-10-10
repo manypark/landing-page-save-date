@@ -3,7 +3,7 @@
   <nav class="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
       <a (click)="scrollToSection('#informacion')" data-scroll-to="#informacion" >
-        <img decoding="async" loading="lazy" class="h-32 w-full" [src]="'assets/images/LogoBenefit.png'" alt="logo benefit">
+        <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/LogoBenefit.png'" alt="logo benefit">
       </a>
     </div>
 
@@ -18,7 +18,7 @@
         (click)="scrollToSection('#informacion')" 
         data-scroll-to="#informacion" 
         class="text-sm cursor-pointer font-semibold leading-6 text-white">
-        BENNEVERSE 2023
+        BENEVERSE 2023
       </a>
       <a 
         (click)="scrollToSection('#recomendaciones')" 
@@ -140,7 +140,7 @@
 
               <select formControlName="resident" class="custom-input w-full">
                 <option>United kingdom</option>
-                <option>Canada</option>
+                <option>Canadá</option>
                 <option>México</option>
                 <option>Brasil</option>
                 <option>Otro</option>
@@ -191,11 +191,11 @@
                   type="text" 
                   maxlength="15" 
                   formControlName="phone" 
-                  placeholder="Número teléfonico" 
+                  placeholder="Número telefónico" 
                   class="custom-input w-full">
               </div>
             </div>
-            <span *ngIf="errorPhone" class="text-red-500 text-sm ml-10"> Número teléfonico requerido </span>
+            <span *ngIf="errorPhone" class="text-red-500 text-sm ml-10"> Número telefónico requerido </span>
               
           </div>
     
