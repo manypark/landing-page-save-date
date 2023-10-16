@@ -11,6 +11,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { ToastService } from './services/toast.service';
 import { AppRoutingModule } from './app-routing.module';
+import { OnlyNumbersDirective } from './shared/only-numbers.directive';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -18,7 +19,8 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OnlyNumbersDirective
   ],
   imports: [
     BrowserModule,

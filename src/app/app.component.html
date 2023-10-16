@@ -120,6 +120,7 @@
               <div class="w-full grid">
                 <input 
                   type="email"
+                  name="email"
                   formControlName="email" 
                   placeholder="Correo electrónico" 
                   [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" 
@@ -156,7 +157,7 @@
                 <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-3.png'" alt="resident icon" class="object-center w-full">
               </div>
 
-              <input type="text" formControlName="otherResident" placeholder="Otro" class="custom-input w-full">
+              <input type="text" name="otherResident" formControlName="otherResident" placeholder="Otro" class="custom-input w-full">
             </div>
           </div>
           
@@ -184,13 +185,16 @@
                   *ngIf="lada == 'Otro'" 
                   type="text" 
                   [maxlength]="5" 
+                  name="lada"
                   formControlName="otherLada" 
                   placeholder="Otra lada" 
                   class="custom-input basis-1/2">
                 <input 
                   type="text" 
                   maxlength="15" 
-                  formControlName="phone" 
+                  name="phone"
+                  numbersOnly
+                  formControlName="phone"
                   placeholder="Número telefónico" 
                   class="custom-input w-full">
               </div>
