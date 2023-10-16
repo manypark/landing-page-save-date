@@ -19,7 +19,7 @@ import { delay } from 'rxjs';
 export class AppComponent implements OnInit, AfterViewInit {
 
   @ViewChild('videoPlayer') videoPlayer?: ElementRef;
-  title = 'Landing Page';
+  title = 'Beneverse Latam 2023';
   form  : FormGroup = new RegisterForm().buildForm(this.formBuilder);
   selectedLanguage = 'es';
   items: MenuItem[] | undefined;
