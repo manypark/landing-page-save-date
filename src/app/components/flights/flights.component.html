@@ -1,0 +1,57 @@
+<div class="grid grid-cols-1 lg:grid-cols-2">
+
+    <!-- Image -->
+    <div class="col-span-1">
+        <div class="w-full h-full">
+            <img decoding="async"
+                class="w-full h-full"
+                [src]="'assets/images/woman-window.png'" 
+                loading="lazy"
+                alt="imagen de beneverse">
+        </div>
+    </div>
+
+    <!-- Form -->
+    <div class="p-20 col-span-1">
+
+        <h2 class="font-bold w-56 mb-11"> FLIGHTS </h2>
+
+        <div class="grid grid-cols-1 ml-6 mb-8 lg:grid-cols-2">
+            <div>
+                <h3 class="text-white font-bold"> ARRIVALS </h3>
+            </div>
+
+            <div>
+                <h3 class="text-white font-bold"> RETURNS </h3>
+            </div>
+        </div>
+
+        <form (ngSubmit)="submit($event)" [formGroup]="form" class="grid gap-4 grid-cols-2">
+
+            <p-calendar formControlName="data_arrival" placeholder="Date" [styleClass]="'w-full custom-input-flights'">
+            </p-calendar>
+
+            <p-calendar formControlName="data_return" placeholder="Date" [styleClass]="'w-full custom-input-flights'">
+            </p-calendar>
+
+            <div class="input-container">
+                <label for="time-input">Time</label>
+                <input type="time" name="time_arrival" id="time_arrival" class="custom-input-flights">
+            </div>
+
+            <div class="input-container">
+                <label for="time-input">Time</label>
+                <input type="time" name="time_returns" id="time_returns" class="custom-input-flights">
+            </div>
+
+            <input type="text" name="airline_arrival" id="airline_arrival" placeholder="Airline" class="custom-input-flights">
+            <input type="text" name="airline_return" id="airline_return" placeholder="Airline" class="custom-input-flights">
+
+            <input type="text" name="origin" id="origin" placeholder="Origin" class="custom-input-flights">
+            <input type="text" name="destination" id="destination" placeholder="Destination" class="custom-input-flights">
+            
+        </form>
+
+    </div>
+
+</div>

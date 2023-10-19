@@ -1,355 +1,76 @@
-<!-- Nav bar -->
-<div class="navbar-background w-full lg:sticky lg:top-0">
-  <nav class="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-    <div class="flex lg:flex-1">
-      <a (click)="scrollToSection('#informacion')" data-scroll-to="#informacion" >
+<!-- Container register -->
+<div class="bg-white rounded-2xl px-8 py-24 m-12 grid place-items-center">
+  
+  <div class="navbar-background flex flex-wrap justify-between w-full">
+
+    <!-- Logo benefit -->
+    <div class="flex">
+      <a (click)="scrollToSection('#informacion')" data-scroll-to="#register" >
         <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/LogoBenefit.png'" alt="logo benefit">
       </a>
     </div>
+    <!-- Logo benefit end -->
 
-    <!-- Menu mobile -->
-    <div class="flex lg:hidden">
-      <p-menu #menu [model]="items" [popup]="true"></p-menu>
-      <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-bars"></button>
-    </div>
+    <!-- Navbar -->
+    <nav class="grid items-center justify-between" aria-label="Global">
 
-    <div class="hidden lg:flex lg:place-items-center lg:gap-x-12">
-      <a 
-        (click)="scrollToSection('#informacion')" 
-        data-scroll-to="#informacion" 
-        class="text-sm cursor-pointer font-semibold leading-6 text-white">
-        BENEVERSE 2023
-      </a>
-      <a 
-        (click)="scrollToSection('#recomendaciones')" 
-        data-scroll-to="#recomendaciones" 
-        class="text-sm cursor-pointer font-semibold leading-6 text-white"> 
-        {{ 'recomendations' | translate }}
-      </a>
-      <a 
-        (click)="scrollToSection('#agenda')" 
-        data-scroll-to="#agenda" 
-        class="text-sm cursor-pointer font-semibold leading-6 text-white">
-        {{ 'agend' | translate }}
-      </a>
-      <a 
-        (click)="scrollToSection('#sede')" 
-        data-scroll-to="#sede" 
-        class="text-sm cursor-pointer font-semibold leading-6 text-white">
-        {{ 'sede' | translate }}
-      </a>
-      <a 
-        (click)="scrollToSection('#registro')" 
-        data-scroll-to="#registro" 
-        class="text-sm button-register px-12 py-2 rounded-lg cursor-pointer font-semibold leading-6 text-white">
-        {{ 'registration' | translate }}
-      </a>
-    </div>
-  </nav>
-</div>
-<!-- Nav bar end -->
-
-<!-- section 0 -->
-<!-- <section id="informacion">
-  <div class="bg-gray-100 py-24 sm:py-32">
-    <h1 class="text-5xl flex justify-center mb-32"> Informacion </h1>
-    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
+      <!-- Menu mobile -->
+      <div class="flex lg:hidden">
+        <p-menu #menu [model]="items" [popup]="true"></p-menu>
+        <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-bars"></button>
       </div>
-      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-        <li>
-          <div class="flex items-center gap-x-6">
-            <img decoding="async" class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <div>
-              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
-              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+
+      <div class="hidden lg:flex lg:place-items-center lg:gap-x-12">
+        <a 
+          (click)="scrollToSection('#informacion')" 
+          data-scroll-to="#informacion" 
+          class="text-sm cursor-pointer text-navbar">
+          BENEVERSE 2023
+        </a>
+        <a 
+          (click)="scrollToSection('#recomendaciones')" 
+          data-scroll-to="#recomendaciones" 
+          class="text-sm cursor-pointer text-navbar"> 
+          {{ 'recomendations' | translate }}
+        </a>
+        <a 
+          (click)="scrollToSection('#agenda')" 
+          data-scroll-to="#agenda" 
+          class="text-sm cursor-pointer text-navbar">
+          {{ 'agend' | translate }}
+        </a>
+        <a 
+          (click)="scrollToSection('#sede')" 
+          data-scroll-to="#sede" 
+          class="text-sm cursor-pointer text-navbar">
+          {{ 'sede' | translate }}
+        </a>
+        <a 
+          (click)="scrollToSection('#register')" 
+          data-scroll-to="#register" 
+          class="text-sm button-register px-20 py-3 rounded-lg cursor-pointer text-white">
+          {{ 'registration' | translate }}
+        </a>
+      </div>
+
+      <div class="h-0.5 divider"></div>
+    </nav>
+    <!-- Navbar end -->
+
+
   </div>
-</section> -->
-<!-- section 0 end -->
+
+  <!-- Registro -->
+  <section id="register">
+    <app-register></app-register>
+  </section>
+  <!-- Registro end -->
+
+</div>
+<!-- Container register end -->
 
 <!-- Registro -->
-<section id="registro" class="w-full grid place-items-center">
-
-  <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 py-20 px-4 lg:px-14">
-
-    <!-- formulario  -->
-    <div class="grid w-full col-span-1 h-96 mb-10 justify-start">
-
-      <div class="text-start mb-4">
-        <h2 class="text-4xl ml-9"> Regístrate para acudir al evento </h2>
-      </div>
-
-      <form (ngSubmit)="submit($event)" [formGroup]="form" class="w-full">
-        <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-    
-          <!-- Nombre completo -->
-          <div class="sm:col-span-2">
-            <div class="flex place-items-center gap-x-2 mt-2.5">
-
-              <div class="w-8 h-8 flex place-content-center">
-                <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-1.png'" alt="name icon" class="object-center w-full">
-              </div>
-
-              <div class="w-full grid">
-                <input
-                  type="text" 
-                  formControlName="name" 
-                  placeholder="Nombre" 
-                  [ngClass]="{'ring-red-500 shake-anim': errorName }" 
-                  class="custom-input w-full">
-                <span *ngIf="errorName" class="text-red-500 text-sm ml-1"> Nombre requerido </span>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Correo electronico -->
-          <div class="sm:col-span-2">
-            <div class="flex place-items-center gap-x-2 mt-2.5">
-
-              <div class="w-8 h-8 flex place-content-center">
-                <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-2.png'" alt="email icon" class="object-center w-full">
-              </div>
-
-              <div class="w-full grid">
-                <input 
-                  type="email"
-                  name="email"
-                  formControlName="email" 
-                  placeholder="Correo electrónico" 
-                  [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" 
-                  class="custom-input w-full">
-                <span *ngIf="errorEmail" class="text-red-500 text-sm ml-1"> Correo requerido </span>
-                <span *ngIf="errorEmailPattern" class="text-red-500 text-sm ml-1"> Correo no valido </span>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Pais residencia -->
-          <div class="sm:col-span-2">
-            <div class="flex place-items-center gap-x-2 mt-2.5">
-
-              <div class="w-8 h-8 flex place-content-center">
-                <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-3.png'" alt="pais icon" class="object-center w-full">
-              </div>
-
-              <select formControlName="resident" class="custom-input w-full">
-                <option>United kingdom</option>
-                <option>Canadá</option>
-                <option>México</option>
-                <option>Brasil</option>
-                <option>Otro</option>
-              </select>
-            </div>
-          </div>
-    
-          <!-- Otra residencia -->
-          <div class="sm:col-span-2" *ngIf="resident == 'Otro'">
-            <div class="flex place-items-center gap-x-2 mt-2.5">
-
-              <div class="w-8 h-8 flex place-content-center">
-                <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-3.png'" alt="resident icon" class="object-center w-full">
-              </div>
-
-              <input type="text" name="otherResident" formControlName="otherResident" placeholder="Otro" class="custom-input w-full">
-            </div>
-          </div>
-          
-          <div class="sm:col-span-2">
-            <div class="flex place-items-center gap-x-2 mt-2.5">
-
-              <div class="w-8 h-8 flex place-content-center">
-                <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-4.png'" alt="another resident icon" class="object-center w-full">
-              </div>
-
-              <div class="flex w-full flex-row">
-  
-                <div class="left-0 flex items-center basis-1/2">
-                  <select formControlName="lada"  class="custom-input w-full">
-                    <option> (+52) </option>
-                    <option> (+55) </option>
-                    <option> (+61) </option>
-                    <option> (+44) </option>
-                    <option> Otro </option>
-                  </select>
-                </div>
-  
-                <!-- Celular -->
-                <input 
-                  *ngIf="lada == 'Otro'" 
-                  type="text" 
-                  [maxlength]="5" 
-                  name="lada"
-                  formControlName="otherLada" 
-                  placeholder="Otra lada" 
-                  class="custom-input basis-1/2">
-                <input 
-                  type="text" 
-                  maxlength="15" 
-                  name="phone"
-                  numbersOnly
-                  formControlName="phone"
-                  placeholder="Número telefónico" 
-                  class="custom-input w-full">
-              </div>
-            </div>
-            <span *ngIf="errorPhone" class="text-red-500 text-sm ml-10"> Número telefónico requerido </span>
-              
-          </div>
-    
-        <!-- Boton de registro -->
-        </div>
-        <div class="mt-10 flex justify-center">
-          <button 
-            type="submit" 
-            [ngClass]="{'button-primary-disabled' : !form.valid || isLoading, 'button-primary' : form.valid }" 
-            [disabled]="!form.valid || isLoading">
-            <i class="pi pi-spin pi-spinner" *ngIf="isLoading" style="font-size: 1rem"></i>
-            Registrar
-          </button>
-        </div>
-      </form>
-
-    </div>
-
-    <!-- imagen -->
-    <div class="col-span-1 max-w-4xl mt-20 lg:mt-8">
-
-      <!-- <div class="w-full h-full">
-        <video #videoPlayer autoplay muted loop playsInline width="700" height="1000">
-          <source [src]="urlVideo" type="video/mp4">
-          Su navegador no soporta vídeos HTML5.
-        </video>
-      </div> -->
-
-      <!-- <button (click)="playVideo()">Play</button> -->
-
-      <div class="w-full h-full">
-        <img decoding="async" 
-          class="w-full h-full object-fill" 
-          src="https://firebasestorage.googleapis.com/v0/b/hellomx-f7302.appspot.com/o/Master_Beneverse.gif?alt=media&token=356f9e0f-d7d8-403e-91f3-c881d33822a8&_gl=1*1l3d2tp*_ga*MTk5MTI4Njk1Mi4xNjg5Mjc1MjY2*_ga_CW55HF8NVT*MTY5Njg3OTkzOC4xNy4xLjE2OTY4ODAwMzIuNjAuMC4w" 
-          loading="lazy"
-          alt="imagen de beneverse">
-      </div>
-
-    </div>
-
-  </div>
-
+<section id="register-flight" class="">
+  <app-flights></app-flights>
 </section>
 <!-- Registro end -->
-
-<!-- section 1 -->
-<!-- <section id="recomendaciones">
-  <div class="bg-gray-100 py-24 sm:py-32">
-    <h1 class="text-5xl flex justify-center mb-32"> Recomendaciones </h1>
-    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
-      </div>
-      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-        <li>
-          <div class="flex items-center gap-x-6">
-            <img decoding="async" class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <div>
-              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
-              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section> -->
-<!-- section 1 end -->
-
-<!-- section 2 -->
-<!-- <section id="agenda">
-  <div class="bg-gray-300 py-24 sm:py-32">
-    <h1 class="text-5xl flex justify-center mb-32"> Agenda </h1>
-    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
-      </div>
-      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-        <li>
-          <div class="flex items-center gap-x-6">
-            <img decoding="async" class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <div>
-              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
-              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
-      </div>
-      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-        <li>
-          <div class="flex items-center gap-x-6">
-            <img decoding="async" class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <div>
-              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
-              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section> -->
-<!-- section 2 end -->
-
-<!-- section 3 -->
-<!-- <section id="sede">
-  <div class="bg-gray-100 py-24 sm:py-32">
-    <h1 class="text-5xl flex justify-center mb-32"> Sede </h1>
-    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
-      </div>
-      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-        <li>
-          <div class="flex items-center gap-x-6">
-            <img decoding="async" class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <div>
-              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
-              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="mx-auto grid max-w-6xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
-      </div>
-      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-        <li>
-          <div class="flex items-center gap-x-6">
-            <img decoding="async" class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <div>
-              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
-              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section> -->
-<!-- section 3 end -->

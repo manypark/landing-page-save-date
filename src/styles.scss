@@ -15,8 +15,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { 
-    height: 100%;
-    background-color: #fdeadb;
+    // height: 100%;
+    background-color: #FC91DC;
 }
 
 body { 
@@ -28,9 +28,26 @@ body {
 
 $base-color-navbar: #FF0061;
 $base-color-button: #EA1964;
+$base-color-text: #FF0064;
+$base-color-background: #FC91DC;
+
+
+.divider {
+    background: $base-color-text;
+}
+
+.text-navbar {
+    color: $base-color-text;
+    font-size: 23px;
+}
+
+.button-next {
+    color: $base-color-text;
+    font-size: 40px;
+}
 
 .navbar-background {
-    background-color: $base-color-navbar;
+    background-color: #fff;
 }
 
 .color-input::placeholder {
@@ -42,6 +59,12 @@ $base-color-button: #EA1964;
 
 .custom-input {
     @apply bg-transparent color-input border-2 border-gray-400;
+    font-size: 23px;
+}
+
+.custom-input-flights {
+    @apply bg-white color-input border-0 border-gray-400;
+    font-size: 23px;
 }
 
 .shake-anim {
