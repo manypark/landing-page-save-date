@@ -20,8 +20,9 @@ import { RegisterFlightsForm } from 'src/app/forms/register-form-flights';
 })
 export class FlightsComponent {
 
-  formBuilder = inject(FormBuilder);
-  form:FormGroup = new RegisterFlightsForm().buildForm(this.formBuilder);
+  formBuilder : FormBuilder = inject(FormBuilder);
+  isLoading   : boolean = false;
+  form        : FormGroup = new RegisterFlightsForm().buildForm(this.formBuilder);
   
   submit(ev:any) {
 

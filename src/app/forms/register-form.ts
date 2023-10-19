@@ -12,6 +12,8 @@ export class RegisterForm {
             phone           : [ '', [Validators.required, Validators.minLength(10),Validators.maxLength(15), ] ],
             lada            : [ '(+52)', [Validators.required] ],
             otherLada       : [ '', [ Validators.maxLength(5)] ],
+            shoe            : [ '', [Validators.required ] ],
+            food            : [ '', [Validators.required ] ],
         });
 
     }

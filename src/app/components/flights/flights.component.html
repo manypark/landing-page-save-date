@@ -50,6 +50,16 @@
             <input type="text" name="origin" id="origin" placeholder="Origin" class="custom-input-flights">
             <input type="text" name="destination" id="destination" placeholder="Destination" class="custom-input-flights">
             
+            <div class="mt-8">
+                <button 
+                  type="submit" 
+                  [ngClass]="{'button-primary-disabled' : !form.valid || isLoading, 'button-primary' : form.valid }" 
+                  [disabled]="!form.valid || isLoading">
+                  <i class="pi pi-spin pi-spinner" *ngIf="isLoading" style="font-size: 1rem"></i>
+                      Sign up
+                </button>
+            </div>
+
         </form>
 
     </div>

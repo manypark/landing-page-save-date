@@ -1,3 +1,62 @@
 .max-wid {
     max-width: 1800px;
 }
+
+.location-title {
+    font-size: 53px;
+}
+
+.location-sub-title {
+    font-size: 39px;
+}
+
+h2 {
+    font-size: 53px;
+    color: #FF0064;
+}
+
+h3 {
+    font-size: 47px;
+    color: #FF0064;
+}
+
+.text-footer {
+    font-size: 29px;
+    color: #FF0064;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.title-dress {
+    font-size: 50px;
+}
+
+.schedule-text {
+    font-size: 40px;
+    color: #FF0064;
+}
+
+.divider-color {
+    background-color: #FF0064;
+}
+
+.event-schedule {
+    @apply grid place-items-center grid-cols-7;
+}
+
+@media only screen and (max-width: 1165px) {
+    .event-schedule {
+        @apply grid place-items-center grid-cols-5;
+    }   
+}
+
+@media only screen and (max-width: 895px) {
+    .event-schedule {
+        @apply grid place-items-center grid-cols-3;
+    }   
+}
+
+@media only screen and (max-width: 650px) {
+    .event-schedule {
+        @apply grid place-items-center grid-cols-1;
+    }   
+}

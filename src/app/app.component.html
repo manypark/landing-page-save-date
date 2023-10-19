@@ -28,20 +28,20 @@
           BENEVERSE 2023
         </a>
         <a 
-          (click)="scrollToSection('#recomendaciones')" 
-          data-scroll-to="#recomendaciones" 
+          (click)="scrollToSection('#dress')" 
+          data-scroll-to="#dress" 
           class="text-sm cursor-pointer text-navbar"> 
           {{ 'recomendations' | translate }}
         </a>
         <a 
-          (click)="scrollToSection('#agenda')" 
-          data-scroll-to="#agenda" 
+          (click)="scrollToSection('#event')" 
+          data-scroll-to="#event" 
           class="text-sm cursor-pointer text-navbar">
           {{ 'agend' | translate }}
         </a>
         <a 
-          (click)="scrollToSection('#sede')" 
-          data-scroll-to="#sede" 
+          (click)="scrollToSection('#location')" 
+          data-scroll-to="#location" 
           class="text-sm cursor-pointer text-navbar">
           {{ 'sede' | translate }}
         </a>
@@ -69,8 +69,121 @@
 </div>
 <!-- Container register end -->
 
-<!-- Registro -->
+<!-- Registro flights -->
 <section id="register-flight" class="">
   <app-flights></app-flights>
 </section>
-<!-- Registro end -->
+<!-- Registro flights end -->
+
+<!-- Location -->
+<section id="location" class="">
+  <div class="w-full grid place-items-center py-12 divider">
+    <p class="text-white location-title font-bold"> Date: November 6 to 9, 2023 </p>    
+    <p class="text-white location-sub-title"> Location: Breathless Riviera Maya Hotel, Cancun </p>    
+  </div>
+</section>
+<!-- Location end -->
+
+<!-- Event schedule -->
+<section id="event" class="w-full">
+  <div class="w-full grid place-items-center py-12 bg-white">
+    
+    <h2 class="py-16 font-bold"> Event schedule </h2>
+
+    <div class="event-schedule  px-20">
+
+      <div class="w-full">
+        <h3 class="font-bold text-center"> November 6th </h3>
+        <p class="text-center schedule-text">
+          Arrival, Check In and Welcome cocktail
+        </p>
+      </div>
+
+      <div class="divider-color w-0.5 h-64 mx-6"></div>
+
+      <div class="w-full">
+        <h3 class="font-bold text-center"> November 7th </h3>
+        <p class="text-center schedule-text">
+          Information and work sessions, Gala Night
+        </p>
+      </div>
+
+      <div class="divider-color w-0.5 h-64 mx-6"></div>
+
+      <div class="w-full">
+        <h3 class="font-bold text-center"> November 8th </h3>
+        <p class="text-center schedule-text">
+          Information and work sessions, Closing Party
+        </p>
+      </div>
+
+      <div class="divider-color w-0.5 h-64 mx-6"></div>
+
+      <div class="w-full">
+        <h3 class="font-bold text-center"> November 9th </h3>
+        <p class="text-center schedule-text">
+          Check out and departure
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- Event schedule end -->
+
+<!-- Dress code -->
+<section id="dress" class="bg-transparent w-full">
+
+  <div class="w-full grid place-items-center py-12">
+    
+    <p class="py-10 title-dress font-bold text-white"> Dress Code </p>
+
+    <div class="flex flex-wrap w-full gap-10 justify-around">
+
+      <div class="grid place-items-center">
+        <p class="title-dress font-bold text-white"> Welcome </p>
+        <p class="title-dress font-bold text-white"> Cocktail </p>
+        <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/touch-of-pink.png'" alt="logo benefit">
+        <p class="title-dress font-bold text-white"> Touch of pink </p>
+      </div>
+
+      <div class="grid place-items-center">
+        <p class="title-dress font-bold text-white"> Gala </p>
+        <p class="title-dress font-bold text-white"> Night </p>
+        <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/gala.png'" alt="logo benefit">
+        <p class="title-dress font-bold text-white"> A sparkling beneverse! </p>
+      </div>
+
+      <div class="grid place-items-center">
+        <p class="title-dress font-bold text-white"> Closing </p>
+        <p class="title-dress font-bold text-white"> Party </p>
+        <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/closing.png'" alt="logo benefit">
+        <p class="title-dress font-bold text-white"> Latin Chic! </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- Dress code end -->
+
+<!-- Footer -->
+<section id="footer" class="bg-white w-full">
+
+  <div class="flex flex-wrap gap-y-16 place-content-center justify-between p-14">
+
+    <div class="grid place-items-start text-footer">
+      <p> BENEVERSE 2023 </p>
+      <div class="flex flex-wrap gap-x-10">
+        <p> https://beneverselatam2023.com/</p>
+        all rights reserved 2023
+      </div>
+    </div>
+
+    <div>
+      <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/LogoPequeno.png'" alt="logo benefit">
+    </div>
+
+  </div>
+</section>
+<!-- Footer end -->
