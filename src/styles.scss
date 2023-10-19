@@ -76,7 +76,8 @@ $base-color-background: #FC91DC;
 }
 
 .button-primary {
-    @apply w-3/4 rounded-md navbar-background px-3.5 py-2.5 text-center text-xl font-semibold text-white shadow-sm;
+    @apply w-3/4 rounded-md px-3.5 py-2.5 text-center text-xl font-semibold text-white shadow-sm;
+    background: $base-color-button;
 }
 
 .button-primary-disabled {

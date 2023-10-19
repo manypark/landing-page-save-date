@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RegisterForm } from 'src/app/forms/register-form';
-import { ToastService } from 'src/app/services/toast.service';
 import { UserRegister } from 'src/app/interfaces/user-register';
-import { RegisterUserService } from 'src/app/services/register-user.service';
+import { FormService } from 'src/app/services/form.service';
 
 @Component({
   selector    : 'app-register',
@@ -19,7 +18,7 @@ import { RegisterUserService } from 'src/app/services/register-user.service';
   templateUrl : './register.component.html',
   styleUrls   : ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
   form  : FormGroup = new RegisterForm().buildForm(this.formBuilder);
   selectedLanguage = 'es';
@@ -28,50 +27,50 @@ export class RegisterComponent {
 
   constructor(
     private readonly formBuilder  : FormBuilder,
-    private readonly userServices : RegisterUserService,
-    private readonly toastServices: ToastService,
+    private readonly formServices : FormService,
   ) {}
+
+  ngOnInit(): void {
+
+    this.formServices.resetForm$.subscribe( data => {      
+      if(data) {
+        this.form.reset({
+          resident: 'United kingdom',
+          lada: '(+52)'
+        });
+      }
+    });
+
+  }
 
   submit(ve:any) {
 
     if( !this.form.valid ) return;
 
-    const { name, email, resident, otherResident, phone, lada, otherLada } = this.form.value;
+    const { name, email, resident, otherResident, phone, lada, otherLada, shoe, food } = this.form.value;
 
     const user:UserRegister = {
       name,
       email,
       resident:  resident == 'Otro' ? otherResident : resident,
       phone,
-      lada: lada == 'Otro' ? otherLada : lada
+      lada: lada == 'Otro' ? otherLada : lada,
+      shoe,
+      food
     };
 
-    this.isLoading = true;
 
-    this.userServices.saveUser(user).subscribe( (res:any) => {
+    this.scrollToSection('register-flight');
 
-      this.isLoading = false;
-
-      if( res.status == 'ok' ) {
-        this.toastServices.openSuccessSnakcBar('hemos enviado un correo de confirmación, revisa tu e-mail', 'Registro exitoso');
-        this.form.reset({
-          resident: 'United kingdom',
-          lada: '(+52)'
-        });
-      }
-
-      if( res.status == 'false' ) {
-        this.toastServices.openSuccessSnakcBar('Hemos enviado un correo de confirmación, revisa tu e-mail', 'Registro exitoso');
-        this.form.reset({
-          resident: 'United kingdom',
-          lada: '(+52)'
-        });
-      }
-
-    }, err => {
-      this.isLoading = false;
-    });
+    this.formServices.setRegisterForm(user);
     
+  }
+
+  scrollToSection(sectionId: string) {
+    const section = document.querySelector(sectionId) as HTMLElement;
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   get errorName():boolean | undefined {
