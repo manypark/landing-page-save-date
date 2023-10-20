@@ -1,12 +1,12 @@
 <!-- Container register -->
 <div class="bg-white rounded-2xl px-8 py-24 m-12 grid place-items-center">
   
-  <div class="navbar-background flex flex-wrap justify-between w-full">
+  <div class="bg-white flex flex-wrap gap-y-10 justify-between w-full">
 
     <!-- Logo benefit -->
     <div class="flex">
       <a (click)="scrollToSection('#informacion')" data-scroll-to="#register" >
-        <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/LogoBenefit.png'" alt="logo benefit">
+        <img decoding="async" loading="lazy" [src]="'assets/images/LogoBenefit.png'" alt="logo benefit">
       </a>
     </div>
     <!-- Logo benefit end -->
@@ -20,7 +20,8 @@
         <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-bars"></button>
       </div>
 
-      <div class="hidden lg:flex lg:place-items-center lg:gap-x-12">
+      <!-- Menu Desktop -->
+      <div class="hidden lg:flex flex-wrap gap-y-4 lg:place-items-center lg:gap-x-12">
         <a 
           (click)="scrollToSection('#informacion')" 
           data-scroll-to="#informacion" 
@@ -53,7 +54,7 @@
         </a>
       </div>
 
-      <div class="h-0.5 divider"></div>
+      <div class="h-0.5 divider lg:mt-4"></div>
     </nav>
     <!-- Navbar end -->
 
@@ -153,7 +154,7 @@
                   <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-4.png'" alt="another resident icon" class="object-center w-full">
                 </div>
   
-                <div class="flex w-full flex-row">
+                <div class="flex flex-wrap lg:flex-nowrap gap-y-2 w-full flex-row">
     
                   <div class="left-0 flex items-center basis-1/2">
                     <select formControlName="lada"  class="custom-input w-full">
@@ -387,7 +388,7 @@
       <p> BENEVERSE 2023 </p>
       <div class="flex flex-wrap gap-x-10">
         <p> https://beneverselatam2023.com/</p>
-        all rights reserved 2023
+        <p> all rights reserved 2023 </p>
       </div>
     </div>
 
