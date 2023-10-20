@@ -6,7 +6,7 @@
     <!-- Logo benefit -->
     <div class="flex">
       <a (click)="scrollToSection('#informacion')" data-scroll-to="#register" >
-        <img decoding="async" loading="lazy" [src]="'assets/images/LogoBenefit.png'" alt="logo benefit">
+        <img decoding="async" loading="lazy" width="300" height="100" [src]="'assets/images/LogoBenefit.png'" alt="logo benefit">
       </a>
     </div>
     <!-- Logo benefit end -->
@@ -263,9 +263,10 @@
   
         <!-- <button (click)="playVideo()">Play</button> -->
   
-        <div class="w-full h-full">
+        <div class="w-full h-full grid place-items-center">
           <img decoding="async"
-              class="w-full h-full"
+              width="800"
+              height="600"
               src="https://firebasestorage.googleapis.com/v0/b/hellomx-f7302.appspot.com/o/Master_Beneverse.gif?alt=media&token=356f9e0f-d7d8-403e-91f3-c881d33822a8&_gl=1*1l3d2tp*_ga*MTk5MTI4Njk1Mi4xNjg5Mjc1MjY2*_ga_CW55HF8NVT*MTY5Njg3OTkzOC4xNy4xLjE2OTY4ODAwMzIuNjAuMC4w" 
               loading="lazy"
               alt="imagen de beneverse">
@@ -289,8 +290,8 @@
 
 <!-- Location -->
 <section id="location" class="">
-  <div class="w-full grid place-items-center py-12 divider">
-    <p class="text-white location-title font-bold"> Date: November 6 to 9, 2023 </p>    
+  <div class="w-full grid place-items-center divider p-20 lg:p-12">
+    <p class="text-white location-title font-bold"> Date: November 6th to 9th, 2023 </p>    
     <p class="text-white location-sub-title"> Location: Breathless Riviera Maya Hotel, Cancun </p>    
   </div>
 </section>
@@ -300,40 +301,44 @@
 <section id="event" class="w-full">
   <div class="w-full grid place-items-center py-12 bg-white">
     
-    <h2 class="py-16 font-bold"> Event schedule </h2>
+    <h2 class="py-16 mb-10 font-bold"> Event schedule </h2>
 
-    <div class="event-schedule  px-20">
+    <div class="event-schedule px-20">
 
-      <div class="w-full">
-        <h3 class="font-bold text-center"> November 6th </h3>
-        <p class="text-center schedule-text">
-          Arrival, Check In and Welcome cocktail
-        </p>
+      <div class="w-full flex flex-col justify-center text-center">
+        <div>
+          <h3 class="font-bold whitespace-nowrap mb-2"> November 6th </h3>
+        </div>
+        <div>
+          <p class="schedule-text">
+            Arrival, Check In and Welcome cocktail
+          </p>
+        </div>
       </div>
 
-      <div class="divider-color w-0.5 h-64 mx-6"></div>
+      <div class="divider-color w-0.5 divider-heigth mx-6"></div>
 
-      <div class="w-full">
-        <h3 class="font-bold text-center"> November 7th </h3>
-        <p class="text-center schedule-text">
+      <div class="w-full flex flex-col justify-center text-center">
+        <h3 class="font-bold  whitespace-nowrap mb-2"> November 7th </h3>
+        <p class=" schedule-text">
           Information and work sessions, Gala Night
         </p>
       </div>
 
-      <div class="divider-color w-0.5 h-64 mx-6"></div>
+      <div class="divider-color w-0.5 divider-heigth mx-6"></div>
 
-      <div class="w-full">
-        <h3 class="font-bold text-center"> November 8th </h3>
-        <p class="text-center schedule-text">
+      <div class="w-full flex flex-col justify-center text-center">
+        <h3 class="font-bold  whitespace-nowrap mb-2"> November 8th </h3>
+        <p class=" schedule-text">
           Information and work sessions, Closing Party
         </p>
       </div>
 
-      <div class="divider-color w-0.5 h-64 mx-6"></div>
+      <div class="divider-color w-0.5 divider-heigth mx-6"></div>
 
-      <div class="w-full">
-        <h3 class="font-bold text-center"> November 9th </h3>
-        <p class="text-center schedule-text">
+      <div class="w-full flex flex-col justify-center text-center">
+        <h3 class="font-bold  whitespace-nowrap mb-2"> November 9th </h3>
+        <p class=" schedule-text">
           Check out and departure
         </p>
       </div>
@@ -348,7 +353,7 @@
 
   <div class="w-full grid place-items-center py-12">
     
-    <p class="py-10 title-dress font-bold text-white"> Dress Code </p>
+    <p class="title-dress pb-20 font-bold text-white"> Dress Code </p>
 
     <div class="flex flex-wrap w-full gap-10 justify-around">
 

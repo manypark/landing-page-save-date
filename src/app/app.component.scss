@@ -16,7 +16,7 @@ h2 {
 }
 
 h3 {
-    font-size: 47px;
+    font-size: 42px;
     color: #FF0064;
 }
 
@@ -32,12 +32,16 @@ h3 {
     }
 }
 
+.divider-heigth {
+    @apply h-64;
+}
+
 .title-dress {
     font-size: 50px;
 }
 
 .schedule-text {
-    font-size: 40px;
+    font-size: 32px;
     color: #FF0064;
 }
 
@@ -46,23 +50,25 @@ h3 {
 }
 
 .event-schedule {
-    @apply grid place-items-center grid-cols-7;
+    @apply flex flex-wrap lg:flex-nowrap justify-around;
 }
 
-@media only screen and (max-width: 1165px) {
+@media only screen and (max-width: 1700px) {
     .event-schedule {
         @apply grid place-items-center grid-cols-5;
     }   
 }
 
-@media only screen and (max-width: 895px) {
+@media only screen and (max-width: 1395px) {
     .event-schedule {
-        @apply grid place-items-center grid-cols-3;
-    }   
+        @apply flex flex-wrap justify-around;
+    }
+    .divider-heigth {
+        @apply h-40;
+    }
 }
-
-@media only screen and (max-width: 650px) {
-    .event-schedule {
-        @apply grid place-items-center grid-cols-1;
-    }   
+@media only screen and (max-width: 700px) {
+    h2 {
+        font-size: 42px;
+    }
 }
