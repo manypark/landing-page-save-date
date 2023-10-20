@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
                   }
               },
               {
-                  label: 'LOCATION',
+                  label: 'FLIGHT CONFIRMATION',
                   command: () => {
                     this.scrollToSection('#location');
                   }
