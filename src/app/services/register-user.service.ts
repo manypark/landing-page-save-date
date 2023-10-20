@@ -12,7 +12,7 @@ export class RegisterUserService {
   ) { }
 
   saveUser( user:UserRegister ) {
-    // return this.http.post('https://benefit-back.onrender.com/api/users', user);
-    return this.http.post('http://localhost:3000/api/users', user);
+    return this.http.post('https://benefit-back.onrender.com/api/users', user);
+    // return this.http.post('http://localhost:3000/api/users', user);
   }
 }

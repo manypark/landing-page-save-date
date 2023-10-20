@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { DividerModule } from 'primeng/divider';
 import { CalendarModule } from 'primeng/calendar';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
   imports:[
@@ -13,6 +14,7 @@ import { CalendarModule } from 'primeng/calendar';
     MenubarModule,
     CalendarModule,
     DividerModule,
+    InputMaskModule,
   ],
   exports: [
     MenuModule,
@@ -20,6 +22,7 @@ import { CalendarModule } from 'primeng/calendar';
     MenubarModule,
     CalendarModule,
     DividerModule,
+    InputMaskModule,
   ]
 })
 export class CoreModule { }

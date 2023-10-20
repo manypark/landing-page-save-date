@@ -11,7 +11,6 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { ToastService } from './services/toast.service';
 import { AppRoutingModule } from './app-routing.module';
-import { OnlyNumbersDirective } from './shared/only-numbers.directive';
 import { RegisterComponent } from './components/register/register.component';
 import { FlightsComponent } from './components/flights/flights.component';
 
@@ -22,7 +21,6 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    OnlyNumbersDirective
   ],
   imports: [
     BrowserModule,

@@ -110,6 +110,10 @@
                   formControlName="otherLada" 
                   placeholder="Other lada" 
                   class="custom-input basis-1/2">
+                  
+
+                <!-- <p-inputMask mask="999999999999999" formControlName="phone" class="custom-input w-full" placeholder="Phone number">
+                </p-inputMask> -->
                 <input 
                   type="text" 
                   maxlength="15" 
@@ -136,7 +140,8 @@
                 <input 
                   type="text"
                   name="shoe"
-                  formControlName="shoe" 
+                  formControlName="shoe"
+                  numbersOnlyDouble
                   placeholder="Shoe size" 
                   [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" 
                   class="custom-input w-full">
@@ -158,7 +163,7 @@
                 <input 
                   type="text"
                   name="food"
-                  formControlName="food" 
+                  formControlName="food"
                   placeholder="Food restrictions" 
                   [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" 
                   class="custom-input w-full">

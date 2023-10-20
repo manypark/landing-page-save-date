@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RegisterForm } from 'src/app/forms/register-form';
 import { UserRegister } from 'src/app/interfaces/user-register';
 import { FormService } from 'src/app/services/form.service';
+import { CoreModule } from 'src/app/core/core.module';
 
 @Component({
   selector    : 'app-register',
@@ -13,7 +14,8 @@ import { FormService } from 'src/app/services/form.service';
   imports     : [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule,
   ],
   templateUrl : './register.component.html',
   styleUrls   : ['./register.component.scss']
@@ -28,6 +30,9 @@ export class RegisterComponent implements OnInit {
   constructor(
     private readonly formBuilder  : FormBuilder,
     private readonly formServices : FormService,
+    private readonly viewportScroller: ViewportScroller,
+    private readonly elementRef: ElementRef,
+    private readonly renderer: Renderer2,
   ) {}
 
   ngOnInit(): void {
@@ -60,17 +65,19 @@ export class RegisterComponent implements OnInit {
     };
 
 
-    this.scrollToSection('register-flight');
+    this.scrollToSection();
 
     this.formServices.setRegisterForm(user);
     
   }
 
-  scrollToSection(sectionId: string) {
-    const section = document.querySelector(sectionId) as HTMLElement;
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+  scrollToSection() {
+    const width = this.elementRef.nativeElement.offsetWidth;
+    
+    if( width <= 700 ) {
+      this.viewportScroller.scrollToPosition([0, 1000]); 
     }
+    this.viewportScroller.scrollToPosition([0, 900]); 
   }
 
   get errorName():boolean | undefined {
