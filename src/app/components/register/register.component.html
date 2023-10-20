@@ -143,9 +143,9 @@
                   formControlName="shoe"
                   numbersOnlyDouble
                   placeholder="Shoe size" 
-                  [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" 
+                  [ngClass]="{'ring-red-500 shake-anim': errorShoe }" 
                   class="custom-input w-full">
-                <span *ngIf="errorEmail" class="text-red-500 text-sm ml-1"> Shoe size required </span>
+                <span *ngIf="errorShoe" class="text-red-500 text-sm ml-1"> Shoe size required </span>
               </div>
             </div>
           </div>
@@ -165,9 +165,9 @@
                   name="food"
                   formControlName="food"
                   placeholder="Food restrictions" 
-                  [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" 
+                  [ngClass]="{'ring-red-500 shake-anim': errorFood  }" 
                   class="custom-input w-full">
-                <span *ngIf="errorEmail" class="text-red-500 text-sm ml-1"> Food restrictions required </span>
+                <span *ngIf="errorFood" class="text-red-500 text-sm ml-1"> Food restrictions required </span>
               </div>
             </div>
           </div>

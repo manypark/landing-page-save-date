@@ -1,5 +1,5 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { CommonModule, ViewportScroller } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -23,16 +23,11 @@ import { CoreModule } from 'src/app/core/core.module';
 export class RegisterComponent implements OnInit {
 
   form  : FormGroup = new RegisterForm().buildForm(this.formBuilder);
-  selectedLanguage = 'es';
   isLoading:boolean = false;
-  numeroAleatorio:number = 0;
 
   constructor(
     private readonly formBuilder  : FormBuilder,
     private readonly formServices : FormService,
-    private readonly viewportScroller: ViewportScroller,
-    private readonly elementRef: ElementRef,
-    private readonly renderer: Renderer2,
   ) {}
 
   ngOnInit(): void {
@@ -65,23 +60,23 @@ export class RegisterComponent implements OnInit {
     };
 
 
-    this.scrollToSection();
+    // this.scrollToSection();
 
     this.formServices.setRegisterForm(user);
     
   }
 
-  scrollToSection() {
-    const width = this.elementRef.nativeElement.offsetWidth;
-    
-    if( width <= 700 ) {
-      this.viewportScroller.scrollToPosition([0, 1000]); 
-    }
-    this.viewportScroller.scrollToPosition([0, 900]); 
-  }
 
   get errorName():boolean | undefined {
     return this.form.get('name')?.hasError('required') && this.form.get('name')?.touched;
+  }
+
+  get errorShoe():boolean | undefined {
+    return this.form.get('shoe')?.hasError('required') && this.form.get('shoe')?.touched;
+  }
+
+  get errorFood():boolean | undefined {
+    return this.form.get('food')?.hasError('required') && this.form.get('food')?.touched;
   }
 
   get errorEmail():boolean | undefined {

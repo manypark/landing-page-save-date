@@ -62,7 +62,218 @@
 
   <!-- Registro -->
   <section id="register">
-    <app-register></app-register>
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 py-20 px-4 lg:px-14">
+
+      <!-- formulario  -->
+      <div class="grid w-full col-span-1 mb-10 justify-start">
+  
+        <div class="text-start mb-4">
+          <h2 class="button-next font-bold ml-9"> SIGN UP FOR THE EVENT </h2>
+        </div>
+  
+        <form (ngSubmit)="submit($event)" [formGroup]="form" class="w-full">
+          <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+      
+            <!-- Nombre completo -->
+            <div class="sm:col-span-2">
+              <div class="flex place-items-center gap-x-2 mt-2.5">
+  
+                <div class="w-8 h-8 flex place-content-center">
+                  <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-1.png'" alt="name icon" class="object-center w-full">
+                </div>
+  
+                <div class="w-full grid">
+                  <input
+                    type="text" 
+                    formControlName="name" 
+                    placeholder="Name" 
+                    [ngClass]="{'ring-red-500 shake-anim': errorName }" 
+                    class="custom-input w-full">
+                  <span *ngIf="errorName" class="text-red-500 text-sm ml-1"> Name required </span>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Correo electronico -->
+            <div class="sm:col-span-2">
+              <div class="flex place-items-center gap-x-2 mt-2.5">
+  
+                <div class="w-8 h-8 flex place-content-center">
+                  <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-2.png'" alt="email icon" class="object-center w-full">
+                </div>
+  
+                <div class="w-full grid">
+                  <input 
+                    type="email"
+                    name="email"
+                    formControlName="email" 
+                    placeholder="e-mail" 
+                    [ngClass]="{'ring-red-500 shake-anim': errorEmail || errorEmailPattern }" 
+                    class="custom-input w-full">
+                  <span *ngIf="errorEmail" class="text-red-500 text-sm ml-1"> E-mail required </span>
+                  <span *ngIf="errorEmailPattern" class="text-red-500 text-sm ml-1"> E-mail not valid </span>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Pais residencia -->
+            <div class="sm:col-span-2">
+              <div class="flex place-items-center gap-x-2 mt-2.5">
+  
+                <div class="w-8 h-8 flex place-content-center">
+                  <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-3.png'" alt="pais icon" class="object-center w-full">
+                </div>
+  
+                <select formControlName="resident" class="custom-input w-full">
+                  <option>United kingdom</option>
+                  <option>Canadá</option>
+                  <option>México</option>
+                  <option>Brasil</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+      
+            <!-- Otra residencia -->
+            <div class="sm:col-span-2" *ngIf="resident == 'Other'">
+              <div class="flex place-items-center gap-x-2 mt-2.5">
+  
+                <div class="w-8 h-8 flex place-content-center">
+                  <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-3.png'" alt="resident icon" class="object-center w-full">
+                </div>
+  
+                <input type="text" name="otherResident" formControlName="otherResident" placeholder="Other" class="custom-input w-full">
+              </div>
+            </div>
+            
+            <div class="sm:col-span-2">
+              <div class="flex place-items-center gap-x-2 mt-2.5">
+  
+                <div class="w-8 h-8 flex place-content-center">
+                  <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-4.png'" alt="another resident icon" class="object-center w-full">
+                </div>
+  
+                <div class="flex w-full flex-row">
+    
+                  <div class="left-0 flex items-center basis-1/2">
+                    <select formControlName="lada"  class="custom-input w-full">
+                      <option> (+52) </option>
+                      <option> (+55) </option>
+                      <option> (+61) </option>
+                      <option> (+44) </option>
+                      <option> Other </option>
+                    </select>
+                  </div>
+    
+                  <!-- Celular -->
+                  <input 
+                    *ngIf="lada == 'Other'" 
+                    type="text" 
+                    [maxlength]="5" 
+                    name="lada"
+                    formControlName="otherLada" 
+                    placeholder="Other lada" 
+                    class="custom-input basis-1/2">
+                  <input 
+                    type="text" 
+                    maxlength="15" 
+                    name="phone"
+                    numbersOnly
+                    formControlName="phone"
+                    placeholder="Phone number" 
+                    class="custom-input w-full">
+                </div>
+              </div>
+              <span *ngIf="errorPhone" class="text-red-500 text-sm ml-10"> Phone number required </span>
+                
+            </div>
+      
+            <!-- Shoe -->
+            <div class="sm:col-span-2">
+              <div class="flex place-items-center gap-x-2 mt-2.5">
+  
+                <div class="w-8 h-8 flex place-content-center">
+                  <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-5.png'" alt="email icon" class="object-center w-full">
+                </div>
+  
+                <!-- numbersOnlyDouble -->
+                <div class="w-full grid">
+                  <input 
+                    type="text"
+                    name="shoe"
+                    formControlName="shoe"
+                    numbersOnlyDouble
+                    placeholder="Shoe size" 
+                    [ngClass]="{'ring-red-500 shake-anim': errorShoe || errorShoePattern }" 
+                    class="custom-input w-full">
+                  <span *ngIf="errorShoe" class="text-red-500 text-sm ml-1"> Shoe size required </span>
+                  <span *ngIf="errorShoePattern" class="text-red-500 text-sm ml-1"> Only one point. </span>
+                </div>
+              </div>
+            </div>
+            <!-- Shoe end -->
+  
+            <!-- Food -->
+            <div class="sm:col-span-2">
+              <div class="flex place-items-center gap-x-2 mt-2.5">
+  
+                <div class="w-8 h-8 flex place-content-center">
+                  <img decoding="async" loading="lazy" [src]="'assets/images/Recurso-6.png'" alt="email icon" class="object-center w-full">
+                </div>
+  
+                <div class="w-full grid">
+                  <input 
+                    type="text"
+                    name="food"
+                    formControlName="food"
+                    placeholder="Food restrictions" 
+                    [ngClass]="{'ring-red-500 shake-anim': errorFood  }" 
+                    class="custom-input w-full">
+                  <span *ngIf="errorFood" class="text-red-500 text-sm ml-1"> Food restrictions required </span>
+                </div>
+              </div>
+            </div>
+            <!-- Food end -->
+  
+          <!-- Boton de registro -->
+          </div>
+          <div class="mt-10 flex justify-center">
+            <button 
+              type="submit" 
+              [ngClass]="{'button-primary-disabled' : !form.valid || isLoading, 'button-primary' : form.valid }" 
+              [disabled]="!form.valid || isLoading">
+              <i class="pi pi-spin pi-spinner" *ngIf="isLoading" style="font-size: 1rem"></i>
+                  Next
+            </button>
+          </div>
+        </form>
+  
+      </div>
+  
+      <!-- imagen -->
+      <div class="col-span-1 max-w-4xl mt-20 lg:mt-8">
+  
+        <!-- <div class="w-full h-full">
+          <video #videoPlayer autoplay muted loop playsInline width="700" height="1000">
+            <source [src]="urlVideo" type="video/mp4">
+            Su navegador no soporta vídeos HTML5.
+          </video>
+        </div> -->
+  
+        <!-- <button (click)="playVideo()">Play</button> -->
+  
+        <div class="w-full h-full">
+          <img decoding="async"
+              class="w-full h-full"
+              src="https://firebasestorage.googleapis.com/v0/b/hellomx-f7302.appspot.com/o/Master_Beneverse.gif?alt=media&token=356f9e0f-d7d8-403e-91f3-c881d33822a8&_gl=1*1l3d2tp*_ga*MTk5MTI4Njk1Mi4xNjg5Mjc1MjY2*_ga_CW55HF8NVT*MTY5Njg3OTkzOC4xNy4xLjE2OTY4ODAwMzIuNjAuMC4w" 
+              loading="lazy"
+              alt="imagen de beneverse">
+        </div>
+  
+      </div>
+  
+  </div>
+  
   </section>
   <!-- Registro end -->
 

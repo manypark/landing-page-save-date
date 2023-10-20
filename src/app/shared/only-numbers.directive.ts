@@ -9,7 +9,7 @@ export class OnlyNumbersDirective {
   @HostListener('input', ['$event'])
   onInputChange(event: Event): void {
     
-    const numbersOnly = /[^0-9]*/g
+    const numbersOnly = /[^0-9]*/g;
 
     const initValue = this.elRef.nativeElement.value;
     this.elRef.nativeElement.value = initValue.replace(numbersOnly, '')
