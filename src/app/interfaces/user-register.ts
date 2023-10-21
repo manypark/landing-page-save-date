@@ -7,6 +7,7 @@ export interface UserRegister {
     lada?:     string;
     shoe?:     string;
     food?:     string;
+    activityToDo?:string;
 
     data_arrival?: string;
     data_return?: string;

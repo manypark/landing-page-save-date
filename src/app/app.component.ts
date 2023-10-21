@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
   loadItems() {
     this.items = [
       {
@@ -84,7 +85,7 @@ export class AppComponent implements OnInit {
 
     if( !this.form.valid ) return;
 
-    const { name, email, resident, otherResident, phone, lada, otherLada, shoe, food } = this.form.value;
+    const { name, email, resident, otherResident, phone, lada, otherLada, shoe, food, activityToDo } = this.form.value;
 
     const user:UserRegister = {
       name,
@@ -93,9 +94,9 @@ export class AppComponent implements OnInit {
       phone,
       lada: lada == 'Otro' ? otherLada : lada,
       shoe,
-      food
+      food,
+      activityToDo
     };
-
 
     this.scrollToSection('#register-flight');
 
@@ -105,6 +106,10 @@ export class AppComponent implements OnInit {
 
   get errorName():boolean | undefined {
     return this.form.get('name')?.hasError('required') && this.form.get('name')?.touched;
+  }
+
+  get errorActivityToDo():boolean | undefined {
+    return this.form.get('activityToDo')?.hasError('required') && this.form.get('activityToDo')?.touched;
   }
 
   get errorShoe():boolean | undefined {
