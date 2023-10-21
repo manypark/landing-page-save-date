@@ -14,7 +14,7 @@ export class RegisterForm {
             otherLada       : [ '', [ Validators.maxLength(5)] ],
             shoe            : [ '', [Validators.required, Validators.pattern(/[^0-9.]*/g) ] ],
             food            : [ '', [Validators.required ] ],
-            activityToDo    : [ '', [Validators.required ] ],
+            activityToDo    : [ 'Activity to do?', [Validators.required ] ],
         });
 
     }

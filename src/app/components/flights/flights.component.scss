@@ -1,18 +1,18 @@
 
 h2 {
-    font-size: 43px;
+    font-size: 26px;
     color: #fff;
     background: #FF0064;
-    padding: 10px 16px;
+    padding: 10px;
 }
 
 h3 {
-    font-size: 36px;
+    font-size: 26px;
 }
 
 ::ng-deep .custom-input-flights .p-inputtext::placeholder {
     color: #FF0064; /* Reemplaza 'red' con el color que desees */
-    font-size: 23px;
+    font-size: 16px;
 }
 
 ::ng-deep .custom-input-flights .p-inputtext {
@@ -25,12 +25,12 @@ h3 {
 
     label {
         position: absolute;
-        top: -0.2rem; /* Ajusta la posición vertical según sea necesario */
+        top: 0.2rem; /* Ajusta la posición vertical según sea necesario */
         left: 0.5rem; /* Ajusta la posición horizontal según sea necesario */
         pointer-events: none;
         color: #FF0064; /* Ajusta el color del texto del label según sea necesario */
         transition: 0.2s all;
-        font-size: 23px;
+        font-size: 16px;
     }
 
     input[type="time"] {

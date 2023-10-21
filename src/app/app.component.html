@@ -6,7 +6,7 @@
     <!-- Logo benefit -->
     <div class="flex">
       <a (click)="scrollToSection('#informacion')" data-scroll-to="#register" >
-        <img decoding="async" loading="lazy" width="300" height="100" [src]="'assets/images/LogoBenefit.png'" alt="logo benefit">
+        <img decoding="async" loading="lazy" width="240" height="80" [src]="'assets/images/LogoBenefit.png'" alt="logo benefit">
       </a>
     </div>
     <!-- Logo benefit end -->
@@ -71,11 +71,11 @@
         <div class="flex flex-col w-full">
     
           <div class="text-start mb-4 w-full">
-            <h2 class="font-bold ml-9"> SIGN UP FOR THE EVENT </h2>
+            <h2 class="ml-9"> SIGN UP FOR THE EVENT </h2>
           </div>
     
           <form (ngSubmit)="submit($event)" [formGroup]="form" class="w-full">
-            <div class="grid w-full grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div class="grid w-full grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
         
               <!-- Nombre completo -->
               <div class="sm:col-span-2">
@@ -376,24 +376,24 @@
     <div class="flex flex-wrap w-full gap-10 justify-around">
 
       <div class="grid place-items-center">
-        <p class="title-dress font-bold text-white"> Welcome </p>
-        <p class="title-dress font-bold text-white"> Cocktail </p>
-        <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/touch-of-pink.png'" alt="logo benefit">
-        <p class="title-dress font-bold text-white"> Touch of pink </p>
+        <p class="sub-title-dress font-bold text-white"> Welcome </p>
+        <p class="sub-title-dress font-bold text-white"> Cocktail </p>
+        <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/touch-of-pink.jpeg'" alt="logo benefit">
+        <p class="sub-title-dress font-bold text-white"> Touch of pink </p>
       </div>
 
       <div class="grid place-items-center">
-        <p class="title-dress font-bold text-white"> Gala </p>
-        <p class="title-dress font-bold text-white"> Night </p>
+        <p class="sub-title-dress font-bold text-white"> Gala </p>
+        <p class="sub-title-dress font-bold text-white"> Night </p>
         <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/gala.png'" alt="logo benefit">
-        <p class="title-dress font-bold text-white"> A sparkling beneverse! </p>
+        <p class="sub-title-dress font-bold text-white"> A sparkling beneverse! </p>
       </div>
 
       <div class="grid place-items-center">
-        <p class="title-dress font-bold text-white"> Closing </p>
-        <p class="title-dress font-bold text-white"> Party </p>
+        <p class="sub-title-dress font-bold text-white"> Closing </p>
+        <p class="sub-title-dress font-bold text-white"> Party </p>
         <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/closing.png'" alt="logo benefit">
-        <p class="title-dress font-bold text-white"> Latin Chic! </p>
+        <p class="sub-title-dress font-bold text-white"> Latin Chic! </p>
       </div>
 
     </div>
@@ -407,7 +407,7 @@
 
   <div class="flex flex-wrap gap-y-16 place-content-center justify-between p-14">
 
-    <div class="grid place-items-start text-footer">
+    <div class="flex flex-col justify-start text-footer">
       <p> BENEVERSE 2023 </p>
       <div class="flex flex-wrap gap-x-10">
         <p> https://beneverselatam2023.com/</p>
@@ -416,7 +416,13 @@
     </div>
 
     <div>
-      <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/LogoPequeno.png'" alt="logo benefit">
+      <img 
+        decoding="async" 
+        loading="lazy" 
+        width="120" 
+        height="40"
+        [src]="'assets/images/LogoPequeno.png'" 
+        alt="logo benefit">
     </div>
 
   </div>

@@ -3,16 +3,17 @@
 }
 
 .location-title {
-    font-size: 53px;
+    font-size: 36px;
 }
 
 .location-sub-title {
-    font-size: 39px;
+    font-size: 26px;
 }
 
 h2 {
-    font-size: 33px;
+    font-size: 26px;
     color: #FF0064;
+    font-weight: 600;
 }
 
 h3 {
@@ -25,35 +26,39 @@ select {
 }
 
 .event-schedule-title {
-    font-size: 53px;
+    font-size: 36px;
 }
 
 .event-schedule-days {
-    font-size: 38px;
+    font-size: 30px;
 }
 
 .text-footer {
-    font-size: 29px;
+    font-size: 16px;
     color: #FF0064;
     font-family: 'Trebuchet MS', sans-serif;
 }
 
-@media only screen and (max-width: 530px) {
-    .text-footer {
-        font-size: 20px;
-    }
-}
+// @media only screen and (max-width: 530px) {
+//     .text-footer {
+//         font-size: 20px;
+//     }
+// }
 
 .divider-heigth {
     @apply h-64;
 }
 
 .title-dress {
-    font-size: 40px;
+    font-size: 36px;
+}
+
+.sub-title-dress {
+    font-size: 30px;
 }
 
 .schedule-text {
-    font-size: 31px;
+    font-size: 26px;
     color: #FF0064;
 }
 

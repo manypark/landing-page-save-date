@@ -66,14 +66,14 @@ export class FlightsComponent implements OnInit {
     this.userServices.saveUser(userInfoComplete).subscribe( (res:any) => {
     
       if( res.status == 'ok' ) {
-        this.toastServices.openSuccessSnakcBar('hemos enviado un correo de confirmación, revisa tu e-mail', 'Registro exitoso');
+        this.toastServices.openSuccessSnakcBar('We have sent a confirmation email, please check your email', 'Successful registration');
         this.isLoading = false;
         this.formServices.setResetForm(true);
         this.form.reset();
       }
 
       if( res.status == 'false' ) {
-        this.toastServices.openSuccessSnakcBar('Hemos enviado un correo de confirmación, revisa tu e-mail', 'Registro exitoso');
+        this.toastServices.openSuccessSnakcBar('We have sent a confirmation email, please check your email', 'Successful registration');
         this.isLoading = false;
         this.formServices.setResetForm(true);
         this.form.reset();

@@ -103,7 +103,6 @@ export class AppComponent implements OnInit {
     this.formServices.setRegisterForm(user);
   }
 
-
   get errorName():boolean | undefined {
     return this.form.get('name')?.hasError('required') && this.form.get('name')?.touched;
   }
