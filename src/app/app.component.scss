@@ -30,7 +30,7 @@ select {
 }
 
 .event-schedule-days {
-    font-size: 30px;
+    font-size: 26px;
 }
 
 .text-footer {
@@ -58,7 +58,7 @@ select {
 }
 
 .schedule-text {
-    font-size: 26px;
+    font-size: 18px;
     color: #FF0064;
 }
 
@@ -70,22 +70,22 @@ select {
     @apply flex flex-wrap lg:flex-nowrap justify-around;
 }
 
-@media only screen and (max-width: 1700px) {
-    .event-schedule {
-        @apply grid place-items-center grid-cols-5;
-    }   
-}
+// @media only screen and (max-width: 1700px) {
+//     .event-schedule {
+//         @apply grid place-items-center grid-cols-5;
+//     }   
+// }
 
-@media only screen and (max-width: 1395px) {
-    .event-schedule {
-        @apply flex flex-wrap justify-around;
-    }
-    .divider-heigth {
-        @apply h-40;
-    }
-}
-@media only screen and (max-width: 700px) {
-    h2 {
-        font-size: 42px;
-    }
-}
+// @media only screen and (max-width: 1395px) {
+//     .event-schedule {
+//         @apply flex flex-wrap justify-around;
+//     }
+//     .divider-heigth {
+//         @apply h-40;
+//     }
+// }
+// @media only screen and (max-width: 700px) {
+//     h2 {
+//         font-size: 42px;
+//     }
+// }
