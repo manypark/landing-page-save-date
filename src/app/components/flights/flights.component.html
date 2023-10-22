@@ -1,8 +1,8 @@
-<div class="flex justify-between">
+<div class="flex flex-wrap lg:flex-nowrap justify-between">
 
     <!-- Image -->
-    <div class="w-2/4">
-        <div class="w-full h-full">
+    <div class="w-full lg:w-3/4 p-12 lg:p-0">
+        <div class="">
             <img decoding="async"
                 width="748"
                 height="675"
@@ -13,11 +13,11 @@
     </div>
 
     <!-- Form -->
-    <div class="px-20 w-3/4">
+    <div class="px-10 mb-14 w-full lg:w-3/4">
 
         <h2 class="font-bold w-36 mb-11"> FLIGHTS </h2>
 
-        <div class="grid grid-cols-1 ml-6 mb-8 lg:grid-cols-2">
+        <div class="grid grid-cols-2 ml-6 mb-8">
             <div>
                 <h3 class="text-white font-bold"> ARRIVALS </h3>
             </div>
@@ -27,42 +27,44 @@
             </div>
         </div>
 
-        <form (ngSubmit)="submit($event)" [formGroup]="form" class="grid gap-4 grid-cols-2">
-
-            <p-calendar formControlName="data_arrival" placeholder="Date" [styleClass]="'w-full custom-input-flights'">
-            </p-calendar>
-
-            <p-calendar formControlName="data_return" placeholder="Date" [styleClass]="'w-full custom-input-flights'">
-            </p-calendar>
-
-            <div class="input-container">
-                <label for="time-input">Time</label>
-                <input type="time" formControlName="time_arrival" name="time_arrival" id="time_arrival" class="custom-input-flights">
-            </div>
-
-            <div class="input-container">
-                <label for="time-input">Time</label>
-                <input type="time" formControlName="time_return" name="time_returns" id="time_returns" class="custom-input-flights">
-            </div>
-
-            <input type="text" formControlName="airline_arrival" name="airline_arrival" id="airline_arrival" placeholder="Airline" class="custom-input-flights">
-            <input type="text" formControlName="airline_return" name="airline_return" id="airline_return" placeholder="Airline" class="custom-input-flights">
-
-            <input type="text" formControlName="origen" name="origin" id="origin" placeholder="Origin" class="custom-input-flights">
-            <input type="text" formControlName="destiny" name="destination" id="destination" placeholder="Destination" class="custom-input-flights">
-            
-            <div class="mt-8">
-                <button 
-                    class="button-primary"
-                    [ngClass]="{'button-primary-disabled' : !userInfo || !form.valid || isLoading, 'button-primary' : userInfo || form.valid }"
-                    [disabled]="!userInfo || !form.valid || isLoading"
-                    type="submit">
-                  <i class="pi pi-spin pi-spinner" *ngIf="isLoading" style="font-size: 1rem"></i>
-                      Sign up
-                </button>
-            </div>
-
-        </form>
+        <div class="w-full">
+            <form (ngSubmit)="submit($event)" [formGroup]="form" class="grid gap-4 grid-cols-2 w-full">
+    
+                <p-calendar formControlName="data_arrival" placeholder="Date" [styleClass]="'w-full custom-input-flights'">
+                </p-calendar>
+    
+                <p-calendar formControlName="data_return" placeholder="Date" [styleClass]="'w-full custom-input-flights'">
+                </p-calendar>
+    
+                <div class="input-container">
+                    <label for="time-input">Time</label>
+                    <input type="time" formControlName="time_arrival" name="time_arrival" id="time_arrival" class="custom-input-flights">
+                </div>
+    
+                <div class="input-container">
+                    <label for="time-input">Time</label>
+                    <input type="time" formControlName="time_return" name="time_returns" id="time_returns" class="custom-input-flights">
+                </div>
+    
+                <input type="text" formControlName="airline_arrival" name="airline_arrival" id="airline_arrival" placeholder="Airline" class="custom-input-flights">
+                <input type="text" formControlName="airline_return" name="airline_return" id="airline_return" placeholder="Airline" class="custom-input-flights">
+    
+                <input type="text" formControlName="origen" name="origin" id="origin" placeholder="Origin" class="custom-input-flights">
+                <input type="text" formControlName="destiny" name="destination" id="destination" placeholder="Destination" class="custom-input-flights">
+                
+                <div class="mt-8">
+                    <button 
+                        class="button-primary"
+                        [ngClass]="{'button-primary-disabled' : !userInfo || !form.valid || isLoading, 'button-primary' : userInfo || form.valid }"
+                        [disabled]="!userInfo || !form.valid || isLoading"
+                        type="submit">
+                      <i class="pi pi-spin pi-spinner" *ngIf="isLoading" style="font-size: 1rem"></i>
+                          Sign up
+                    </button>
+                </div>
+    
+            </form>
+        </div>
 
     </div>
 
