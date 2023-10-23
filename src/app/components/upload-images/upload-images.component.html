@@ -5,17 +5,34 @@
 
         <div class="card flex justify-content-center">
             <p-toast></p-toast>
-            <p-fileUpload
+
+            <label for="file-upload" class="label w-56 text-center">
+              <input 
+                type="file" 
+                id="file-upload"
+                #fileInput
                 [disabled]="isUploadingImage"
-                styleClass="divider w-60"
-                mode="basic"
-                chooseLabel="Add photo"
-                name="demo[]" 
-                url="https://www.primefaces.org/cdn/api/upload.php" 
-                accept="image/*" 
-                [maxFileSize]="5500000" 
-                (onUpload)="onUpload($event)">
-            </p-fileUpload>
+                accept="image/*"
+                (change)="selectFile($event)"/>
+            </label>
+
+            <div class="grid">
+              <p> {{ fileName }} </p>
+            </div>
+
+            <button *ngIf="selectedFiles != undefined"
+              class="bg-green-600 w-24 ml-10 rounded-lg text-white"
+              [disabled]="!selectedFiles"
+              (click)="onUpload($event)">
+              Upload
+            </button>
+
+            <button *ngIf="selectedFiles != undefined"
+              class="bg-red-600 w-24 ml-5 rounded-lg text-white"
+              [disabled]="!selectedFiles"
+              (click)="clearFileInput()">
+              Cancel
+            </button>
         </div>
 
         <div>

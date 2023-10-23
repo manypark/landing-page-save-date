@@ -1,11 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from 'src/app/core/core.module';
 import { MessageService } from 'primeng/api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FirebaseStorageService } from 'src/app/services/firebase-storage.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { FileUpload } from 'primeng/fileupload';
 import { ToastService } from 'src/app/services/toast.service';
 
 interface UploadEvent {
@@ -40,6 +39,7 @@ export class UploadImagesComponent implements OnInit {
   private storage       : AngularFireStorage = inject(AngularFireStorage);
   private toastServices : ToastService = inject(ToastService);
 
+  @ViewChild('fileInput', {static: true}) fileInput?:ElementRef;
   rows        : number = 4;
   currentPage : number = 0;
   images      : ImagesFromFirebase[] = [
@@ -71,24 +71,46 @@ export class UploadImagesComponent implements OnInit {
     }
   ];
   isUploadingImage:boolean = false;
+  selectedFiles?: FileList;
+  fileName:string = '';
 
   ngOnInit(): void {
     this.getFilesList();
   }
 
+  selectFile(event: any): void {
+
+    this.selectedFiles = event.target.files;
+    
+    if (this.selectedFiles && this.selectedFiles.length > 0) {
+
+      this.fileName = this.selectedFiles[0].name;
+
+      const file = this.selectedFiles[0];
+      
+      if (file.size > 5 * 1024 * 1024) {
+        console.log("El archivo es demasiado grande. Se permiten archivos de hasta 5 MB.");
+      }
+
+    }
+  }
+
+  clearFileInput() {
+    if (this.fileInput) {
+      this.fileInput.nativeElement.value = '';
+      this.selectedFiles = undefined;
+    }
+  }
+
   onUpload( event:any ) {
 
     this.isUploadingImage = true;
+    const file: File | null | undefined = this.selectedFiles?.item(0);
 
-    if ( event.files ) {
-      const file: File | null = event.files;
-
-      if (file) {
+    if (file) {
 
         this.uploadService.pushFileToStorage(file).subscribe({
-          next:( percentage:any ) => {
-            
-          },
+          next:( percentage:any ) => {},
           error: (err) => {
             console.log(err);
             this.isUploadingImage = false;
@@ -97,9 +119,9 @@ export class UploadImagesComponent implements OnInit {
             this.isUploadingImage = false;
             this.toastServices.openSuccessSnakcBar('Upload image sucessful');
             this.getFilesList();
+            this.clearFileInput();
           }
         });
-      }
     }
   }
 

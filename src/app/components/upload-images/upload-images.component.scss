@@ -10,3 +10,28 @@
     color: #FF0064;
 }
 
+input[type='file'] {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  /* estilo para el boton personalizado */
+  .label {
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 20px;
+    border: none;
+    background-color: #FF0064;
+    color: #fff;
+    border-radius: 10px;
+  }
+  
+  /* estilo para el texto dentro del boton */
+  .label::after {
+    content: 'Add Photo';
+  }

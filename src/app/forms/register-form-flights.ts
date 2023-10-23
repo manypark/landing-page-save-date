@@ -7,8 +7,8 @@ export class RegisterFlightsForm {
         return formBuild.group({
             data_arrival    : [ '', [ Validators.required ] ],
             data_return     : [ '', [ Validators.required ] ],
-            time_arrival    : [ '', [ Validators.required ] ],
-            time_return     : [ '', [ Validators.required ] ],
+            time_arrival    : [ '12:00', [ Validators.required ] ],
+            time_return     : [ '12:00', [ Validators.required ] ],
             airline_arrival : [ '', [ Validators.required ] ],
             airline_return  : [ '', [ Validators.required ] ],
             origen          : [ '', [ Validators.required ] ],

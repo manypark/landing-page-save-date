@@ -13,7 +13,7 @@ export class FirebaseStorageService {
 
   pushFileToStorage(fileUpload: any): Observable<number | undefined> {
 
-    const filePath = `${this.basePath}/${fileUpload[0].name}`;
+    const filePath = `${this.basePath}/${fileUpload.name}`;
     const uploadTask = this.storage.upload(filePath, fileUpload);
 
     uploadTask.snapshotChanges().subscribe();

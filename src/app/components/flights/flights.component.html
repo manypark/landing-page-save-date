@@ -52,15 +52,19 @@
                 <input type="text" formControlName="origen" name="origin" id="origin" placeholder="Origin" class="custom-input-flights">
                 <input type="text" formControlName="destiny" name="destination" id="destination" placeholder="Destination" class="custom-input-flights">
                 
-                <div class="mt-8">
-                    <button 
-                        class="button-primary"
-                        [ngClass]="{'button-primary-disabled' : !userInfo || !form.valid || isLoading, 'button-primary' : userInfo || form.valid }"
-                        [disabled]="!userInfo || !form.valid || isLoading"
-                        type="submit">
-                      <i class="pi pi-spin pi-spinner" *ngIf="isLoading" style="font-size: 1rem"></i>
-                          Sign up
-                    </button>
+                <div class="col-span-full">
+                    <p>* Please fill out all fields to enable the register button</p>
+    
+                    <div class="mt-8 w-72">
+                        <button 
+                            class="button-primary w-full"
+                            [ngClass]="{'button-primary-disabled' : !userInfo || !form.valid || isLoading, 'button-primary' : userInfo || form.valid }"
+                            [disabled]="!userInfo || !form.valid || isLoading"
+                            type="submit">
+                          <i class="pi pi-spin pi-spinner" *ngIf="isLoading" style="font-size: 1rem"></i>
+                              Sign up
+                        </button>
+                    </div>
                 </div>
     
             </form>
