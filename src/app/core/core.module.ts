@@ -6,6 +6,10 @@ import { MenubarModule } from 'primeng/menubar';
 import { DividerModule } from 'primeng/divider';
 import { CalendarModule } from 'primeng/calendar';
 import { InputMaskModule } from 'primeng/inputmask';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
+import { PaginatorModule } from 'primeng/paginator';
+import { GalleriaModule } from 'primeng/galleria';
 
 @NgModule({
   imports:[
@@ -15,6 +19,10 @@ import { InputMaskModule } from 'primeng/inputmask';
     CalendarModule,
     DividerModule,
     InputMaskModule,
+    FileUploadModule,
+    ToastModule,
+    PaginatorModule,
+    GalleriaModule,
   ],
   exports: [
     MenuModule,
@@ -23,6 +31,10 @@ import { InputMaskModule } from 'primeng/inputmask';
     CalendarModule,
     DividerModule,
     InputMaskModule,
+    FileUploadModule,
+    ToastModule,
+    PaginatorModule,
+    GalleriaModule,
   ]
 })
 export class CoreModule { }

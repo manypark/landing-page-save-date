@@ -270,7 +270,7 @@
                 [ngClass]="{'button-primary-disabled' : !form.valid || isLoading, 'button-primary' : form.valid }" 
                 [disabled]="!form.valid || isLoading">
                 <i class="pi pi-spin pi-spinner" *ngIf="isLoading" style="font-size: 1rem"></i>
-                    Next
+                     Register my flights
               </button>
             </div>
           </form>
@@ -301,7 +301,7 @@
 <!-- Container register end -->
 
 <!-- Registro flights -->
-<section id="register-flight" class="">
+<section id="register-flight" class="" *ngIf="canShowFlights">
   <app-flights></app-flights>
 </section>
 <!-- Registro flights end -->
@@ -356,9 +356,10 @@
 
       <div class="w-full flex flex-col justify-center text-center">
         <h3 class="font-bold  whitespace-nowrap mb-2 event-schedule-days"> November 9th </h3>
-        <p class=" schedule-text">
+        <p class="schedule-text">
           Check out and departure
         </p>
+        <br>
       </div>
     </div>
 
@@ -375,28 +376,25 @@
 
     <div class="flex flex-wrap w-full gap-10 justify-around">
 
-      <div class="grid place-items-center">
-        <p class="sub-title-dress font-bold text-white"> Welcome </p>
-        <p class="sub-title-dress font-bold text-white"> Cocktail </p>
-        <p class="sub-title-dress font-bold text-white"> November 6th </p>
+      <div class="grid place-items-center gap-y-0">
+        <p class="sub-title-dress font-bold text-white"> Welcome Cocktail </p>
+        <p class="sub-title-date font-light text-white mb-6"> November 6th </p>
         <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/touch-of-pink.jpeg'" alt="logo benefit">
-        <p class="sub-title-dress font-bold text-white"> Touch of pink </p>
+        <p class="mob-title-dress font-light text-white"> Touch of pink </p>
       </div>
 
-      <div class="grid place-items-center">
-        <p class="sub-title-dress font-bold text-white"> Gala </p>
-        <p class="sub-title-dress font-bold text-white"> Night </p>
-        <p class="sub-title-dress font-bold text-white"> November 7th </p>
+      <div class="grid place-items-center gap-y-0">
+        <p class="sub-title-dress font-bold text-white"> Gala Night </p>
+        <p class="sub-title-date font-light text-white mb-6"> November 7th </p>
         <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/gala.png'" alt="logo benefit">
-        <p class="sub-title-dress font-bold text-white"> A sparkling beneverse! </p>
+        <p class="mob-title-dress font-light text-white"> A sparkling beneverse! </p>
       </div>
 
-      <div class="grid place-items-center">
-        <p class="sub-title-dress font-bold text-white"> Closing </p>
-        <p class="sub-title-dress font-bold text-white"> Party </p>
-        <p class="sub-title-dress font-bold text-white"> November 8th </p>
+      <div class="grid place-items-center gap-y-0">
+        <p class="sub-title-dress font-bold text-white"> Closing Party </p>
+        <p class="sub-title-date font-light text-white mb-6"> November 8th </p>
         <img decoding="async" loading="lazy" class="max-w-xs" [src]="'assets/images/closing.png'" alt="logo benefit">
-        <p class="sub-title-dress font-bold text-white"> Latin Chic! </p>
+        <p class="mob-title-dress font-light text-white"> Latin Chic! </p>
       </div>
 
     </div>
@@ -404,6 +402,12 @@
   </div>
 </section>
 <!-- Dress code end -->
+
+<!-- upload images -->
+<!-- <section id="upload-images">
+  <app-upload-images></app-upload-images>
+</section> -->
+<!-- upload images -->
 
 <!-- Footer -->
 <section id="footer" class="bg-white w-full">

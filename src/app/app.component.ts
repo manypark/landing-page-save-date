@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   items: MenuItem[] | undefined;
   form  : FormGroup = new RegisterForm().buildForm(this.formBuilder);
   isLoading:boolean = false;
+  canShowFlights:boolean = false;
   
   constructor(
     private readonly translateService: TranslateService,
@@ -38,11 +39,14 @@ export class AppComponent implements OnInit {
   }
 
   listenerFormSave() {
-    this.formServices.resetForm$.subscribe( data => {      
+    this.formServices.resetForm$.subscribe( data => {
+      
       if(data) {
+        this.canShowFlights = false;
         this.form.reset({
           resident: 'United kingdom',
-          lada: '(+52)'
+          lada: '(+52)',
+          activityToDo:'Activity to do?'
         });
       }
     });
@@ -98,9 +102,15 @@ export class AppComponent implements OnInit {
       activityToDo
     };
 
-    this.scrollToSection('#register-flight');
+    this.canShowFlights = true;
 
-    this.formServices.setRegisterForm(user);
+    setTimeout(() => {
+      
+      this.scrollToSection('#register-flight');
+  
+      this.formServices.setRegisterForm(user);
+    }, 500);
+
   }
 
   get errorName():boolean | undefined {

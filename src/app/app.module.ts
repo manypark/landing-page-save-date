@@ -8,6 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 import { AppComponent } from './app.component';
 import { ToastService } from './services/toast.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +18,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { FlightsComponent } from './components/flights/flights.component';
 import { OnlyNumbersDirective } from './shared/only-numbers.directive';
 import { OnlyNumbersDoubleDirective } from './shared/only-numbers-double.directive';
+import { UploadImagesComponent } from './components/upload-images/upload-images.component';
+import { environment } from 'src/enviroments/enviroment';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -29,6 +34,8 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
@@ -45,6 +52,7 @@ export function createTranslateLoader(http: HttpClient) {
 
     RegisterComponent,
     FlightsComponent,
+    UploadImagesComponent,
   ],
   providers: [
     ToastService

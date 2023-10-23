@@ -1,0 +1,65 @@
+<div class="flex flex-col bg-white rounded-2xl p-12 m-12">
+
+    <div class="flex flex-wrap justify-between">
+      <div class="w-1/2 flex flex-col gap-y-6">
+
+        <div class="card flex justify-content-center">
+            <p-toast></p-toast>
+            <p-fileUpload
+                [disabled]="isUploadingImage"
+                styleClass="divider w-60"
+                mode="basic"
+                chooseLabel="Add photo"
+                name="demo[]" 
+                url="https://www.primefaces.org/cdn/api/upload.php" 
+                accept="image/*" 
+                [maxFileSize]="5500000" 
+                (onUpload)="onUpload($event)">
+            </p-fileUpload>
+        </div>
+
+        <div>
+            <p class="text-benefit"> BENEFIT CONVENTION EXPETIENCE 2024 </p>
+        </div>
+      </div>
+      <div class="w-1/2">
+        <div class="flex flex-col text-small-benefit">
+            <p> Your smile are here! </p>
+            <p> Share your best photo during the event </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10">
+
+        <div class="flex">
+            <div *ngFor="let image of images | slice: ( (currentPage) * rows): ( (currentPage ) * rows + rows)">
+              <img
+              class="object-contain"
+              (click)="showImageGallery( image.itemImageSrc)"
+              [src]="image.itemImageSrc" [alt]="image.alt" style="width: 150px; height: 150px; margin: 10px;">
+            </div>
+          </div>
+          
+          <p-paginator [rows]="rows" [totalRecords]="images.length" (onPageChange)="onPageChange($event)"></p-paginator>
+
+          <div class="card flex justify-content-center">
+            <p-galleria
+                [value]="images"
+                [(visible)]="displayBasic!"
+                [responsiveOptions]="responsiveOptions"
+                [containerStyle]="{ 'max-width': '850px' }"
+                [numVisible]="4"
+                [activeIndex]="indexImages"
+                [circular]="true"
+                [fullScreen]="true"
+                [showItemNavigators]="true"
+                [showThumbnails]="false">
+                <ng-template pTemplate="item" let-item>
+                    <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
+                </ng-template>
+            </p-galleria>
+        </div>
+          
+    </div>
+</div>
