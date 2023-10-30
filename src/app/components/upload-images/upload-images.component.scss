@@ -35,3 +35,15 @@ input[type='file'] {
   .label::after {
     content: 'Add Photo';
   }
+
+  ::ng-deep .p-galleria-close-icon {
+    color: #fff;
+  }
+
+  ::ng-deep .p-galleria-item-next-icon {
+    color: #fff;
+  }
+
+  ::ng-deep .p-galleria-item-prev-icon {
+    color: #fff;
+  }

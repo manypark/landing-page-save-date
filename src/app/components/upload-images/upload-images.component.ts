@@ -1,16 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from 'src/app/core/core.module';
-import { MessageService } from 'primeng/api';
+import { Message, MessageService } from 'primeng/api';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FirebaseStorageService } from 'src/app/services/firebase-storage.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ToastService } from 'src/app/services/toast.service';
-
-interface UploadEvent {
-  originalEvent: Event;
-  files: File[];
-}
 
 interface ImagesFromFirebase {
   itemImageSrc:string;
@@ -40,16 +36,10 @@ export class UploadImagesComponent implements OnInit {
   private toastServices : ToastService = inject(ToastService);
 
   @ViewChild('fileInput', {static: true}) fileInput?:ElementRef;
-  rows        : number = 4;
+  messages: Message[] | undefined;
+  rows        : number = 10;
   currentPage : number = 0;
-  images      : ImagesFromFirebase[] = [
-    {
-      itemImageSrc: 'https://via.placeholder.com/150',
-      thumbnailImageSrc: 'https://via.placeholder.com/150',
-      alt: 'Description for Image 1',
-      title: 'Title 1'
-    },
-  ];
+  images      : ImagesFromFirebase[] = [];
   indexImages:number = 0;
   displayBasic: boolean | undefined;
   responsiveOptions: any[] = [
@@ -80,26 +70,29 @@ export class UploadImagesComponent implements OnInit {
 
   selectFile(event: any): void {
 
+    this.messages = [];
+    const file = event.target.files[0];
+      
+    if (file.size > 5 * 1024 * 1024) {
+
+      this.messages = [
+        { severity: 'error', summary: 'Error', detail: 'The size limit is 5mb' },
+      ];
+
+      return;
+    }
+
     this.selectedFiles = event.target.files;
     
     if (this.selectedFiles && this.selectedFiles.length > 0) {
-
       this.fileName = this.selectedFiles[0].name;
-
-      const file = this.selectedFiles[0];
-      
-      if (file.size > 5 * 1024 * 1024) {
-        console.log("El archivo es demasiado grande. Se permiten archivos de hasta 5 MB.");
-      }
-
     }
   }
 
   clearFileInput() {
-    if (this.fileInput) {
-      this.fileInput.nativeElement.value = '';
+      this.fileInput?.nativeElement.value !!= '';
       this.selectedFiles = undefined;
-    }
+      this.fileName = '';
   }
 
   onUpload( event:any ) {
@@ -157,8 +150,6 @@ export class UploadImagesComponent implements OnInit {
             itemImageSrc: url,
             thumbnailImageSrc: url,
           });
-          
-          console.log(this.images);
 
         }).catch((error:any) => {
           console.log('Error al obtener la URL de descarga: ', error);

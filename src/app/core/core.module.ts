@@ -10,6 +10,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { ToastModule } from 'primeng/toast';
 import { PaginatorModule } from 'primeng/paginator';
 import { GalleriaModule } from 'primeng/galleria';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   imports:[
@@ -23,6 +24,7 @@ import { GalleriaModule } from 'primeng/galleria';
     ToastModule,
     PaginatorModule,
     GalleriaModule,
+    MessagesModule,
   ],
   exports: [
     MenuModule,
@@ -35,6 +37,8 @@ import { GalleriaModule } from 'primeng/galleria';
     ToastModule,
     PaginatorModule,
     GalleriaModule,
+    MessagesModule,
   ]
 })
+
 export class CoreModule { }

@@ -1,44 +1,63 @@
 <div class="flex flex-col bg-white rounded-2xl p-12 m-12">
 
-    <div class="flex flex-wrap justify-between">
-      <div class="w-1/2 flex flex-col gap-y-6">
+    <div class="flex flex-col lg:flex-row justify-between">
 
-        <div class="card flex justify-content-center">
-            <p-toast></p-toast>
+      <div class="w-full lg:w-1/2 flex flex-col gap-y-6">
 
-            <label for="file-upload" class="label w-56 text-center">
-              <input 
-                type="file" 
-                id="file-upload"
-                #fileInput
-                [disabled]="isUploadingImage"
-                accept="image/*"
-                (change)="selectFile($event)"/>
-            </label>
+        <div class="flex flex-wrap">
 
-            <div class="grid">
-              <p> {{ fileName }} </p>
+          <!-- <p-messages severity="error" *ngIf="errorSizeImg" [closable]="false">
+              <ng-template pTemplate>
+                  <div class="ml-2">Always bet on Prime.</div>
+              </ng-template>
+          </p-messages> -->
+
+
+          <div class="grid">
+            <p-messages [(value)]="messages!" [enableService]="false" [closable]="true"></p-messages>
+
+            <div class="">
+              <label for="file-upload" class="label w-56 text-center" *ngIf="fileName == '' ">
+                <input 
+                  type="file" 
+                  id="file-upload"
+                  #fileInput
+                  [disabled]="isUploadingImage"
+                  accept="image/*"
+                  (change)="selectFile($event)"/>
+              </label>
+  
+              <div class="grid place-items-center mb-4">
+                <p> {{ fileName }} </p>
+              </div>
+            </div>
+          </div>
+
+            <div class="w-full flex justify-start mr-4">
+              <button *ngIf="selectedFiles != undefined"
+                class="bg-green-600 w-24 h-12 ml-10 rounded-lg text-white"
+                [ngClass]="{'bg-gray-300':!isUploadingImage }"
+                [disabled]="!selectedFiles || isUploadingImage"
+                (click)="onUpload($event)">
+                <i class="pi pi-spin pi-spinner" *ngIf="isUploadingImage" style="font-size: 1rem"></i>
+                Upload
+              </button>
+  
+              <button *ngIf="selectedFiles != undefined"
+                class="bg-red-600 w-24 h-12 ml-5 rounded-lg text-white"
+                [disabled]="!selectedFiles"
+                (click)="clearFileInput()">
+                Cancel
+              </button>
             </div>
 
-            <button *ngIf="selectedFiles != undefined"
-              class="bg-green-600 w-24 ml-10 rounded-lg text-white"
-              [disabled]="!selectedFiles"
-              (click)="onUpload($event)">
-              Upload
-            </button>
-
-            <button *ngIf="selectedFiles != undefined"
-              class="bg-red-600 w-24 ml-5 rounded-lg text-white"
-              [disabled]="!selectedFiles"
-              (click)="clearFileInput()">
-              Cancel
-            </button>
         </div>
 
         <div>
             <p class="text-benefit"> BENEFIT CONVENTION EXPETIENCE 2024 </p>
         </div>
       </div>
+
       <div class="w-1/2">
         <div class="flex flex-col text-small-benefit">
             <p> Your smile are here! </p>
@@ -47,7 +66,7 @@
       </div>
     </div>
 
-    <div class="mt-10">
+    <div class="mt-10" *ngIf="images.length > 0">
 
         <div class="flex">
             <div *ngFor="let image of images | slice: ( (currentPage) * rows): ( (currentPage ) * rows + rows)">
@@ -66,7 +85,7 @@
                 [(visible)]="displayBasic!"
                 [responsiveOptions]="responsiveOptions"
                 [containerStyle]="{ 'max-width': '850px' }"
-                [numVisible]="4"
+                [numVisible]="10"
                 [activeIndex]="indexImages"
                 [circular]="true"
                 [fullScreen]="true"
