@@ -67,15 +67,15 @@
 
     <div class="mt-10" *ngIf="images.length > 0">
 
-        <div class="flex">
+        <div class="w-full grid place-items-center sm:flex md:lex lg:flex gap-x-4">
             <div *ngFor="let image of images | slice: ( (currentPage) * rows): ( (currentPage ) * rows + rows)">
               <img
-              class="object-contain"
+              class="object-cover image-size"
               (click)="showImageGallery( image.itemImageSrc)"
-              [src]="image.itemImageSrc" [alt]="image.alt" style="width: 150px; height: 150px; margin: 10px;">
+              [src]="image.itemImageSrc" [alt]="image.alt">
             </div>
           </div>
-          
+
           <p-paginator [rows]="rows" [totalRecords]="images.length" (onPageChange)="onPageChange($event)"></p-paginator>
 
           <div class="card flex justify-content-center">

@@ -47,3 +47,15 @@ input[type='file'] {
   ::ng-deep .p-galleria-item-prev-icon {
     color: #fff;
   }
+
+.image-size {
+  width: 150px; height: 150px; margin: 10px;
+  border: 7px solid #FF0064;
+}
+
+// @media only screen and ( max-width: 400px ) {
+
+//   .image-size {
+//     width: 75px; height: 75px; margin: 10px;
+//   }
+// }
